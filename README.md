@@ -38,6 +38,8 @@
 
 * [Setup React Native App]()
 * [View,Text]()
+* [Styling Components]()
+* [Apply Multiple Style]()
 * [Buttons]()
 * [Touchable]()
 * [Pressable]()
@@ -55,18 +57,12 @@
 * [StausBar]()
 * [Header Styling]()
 * [Link]()
-* [Async Storage]()
-* [Activity Indicator]()
-* [Web View]()
-* [Styling]()
-* [AsyncStorage]()
-* [SQLite Database]()
 * [Alert & Toast Message]()
 * [Modal]()
-
-* `React.js Hooks in React Native:`
-   * `useState`
-   * `useEffect`
+* [Async Storage]()
+* [SQLite Database]()
+* [Activity Indicator]()
+* [Web View]()
 
 ### `💡Navigation:`
 * [Stack Navigator]()
@@ -74,24 +70,23 @@
 * [Drawer Navigator]()
 * [useNavigate Hook]()
 * [Passing Data Between Screen]()
-* []()
 
-### 🚀 `Generate Apk File:`
+### 🚀 ***Generate Apk File:***
 * `Create Account In Expo`
 * `$ expo login`
 * `$ expo build:android`
-* ***⌛ Wait 20-30 Minutes***
+* **⌛ Wait 20-30 Minutes**
 
 ---
 
 <h1 align='center'>Fundamentals</h1>
 
-### ✨ Setup React Native App:
+### 📝Setup React Native App:
 ```bash
 $ npm i expo
 $ expo init my-app
 ```
-### ✨  View,Text:
+### 📝 View,Text:
 ```js
 // View Like Html -> <div></div>
 // Text Like Html -> <p></p>
@@ -107,7 +102,15 @@ const Demo = () => {
 
 export default Demo;
 ```
-### ✨  Buttons:
+### 📝 Styling Components:
+```js
+
+```
+### 📝 Apple Multiple Style:
+```js
+
+```
+### 📝 Button:
 ```js
 import {Button} from 'react-native';
 
@@ -116,6 +119,7 @@ const Demo = () => {
       <Button
          title=''
          onPress={}
+         color='red'
       >
          Open Link
       </Button>
@@ -124,23 +128,72 @@ const Demo = () => {
 
 export default Demo;
 ```
-### ✨  Touchables:
+
+### 📝 Touchable:
 ```js
-import {TouchableOpacity} from 'react-native';
+import {
+   View,Text,
+   TouchableOpacity,
+   TouchableHighlight,
+   TouchableWithoutFeedback,
+   Alert
+} from 'react-native';
 
 const Demo = () => {
    return(
-      <TouchableOpacity
-         onPress={}
-      >
-         <Text>Im A Button</Text>
-      </TouchableOpacity>
+      <View>
+         <TouchableOpacity
+            // onPress={}
+            activeOpacity={0.7}
+         >
+            <View style={{backgroundColor:'red'}}>
+               <Text style={{color: 'white',textAlign: 'center'}}>TouchableOpacity</Text>
+            </View>
+         </TouchableOpacity>
+         <TouchableHighlight
+            // onPress={}
+            activeOpacity={0.7}
+            underlayColor='#999'
+         >
+            <View style={{backgroundColor:'green'}}>
+               <Text style={{color: 'white',textAlign: 'center'}}>TouchableHighlight</Text>
+            </View>
+         </TouchableHighlight>
+         <TouchableWithoutFeedback
+            // onPress={}
+            onLongPress={()=>Alert.alert('ok')}
+            activeOpacity={0.7}
+            underlayColor='#999'
+         >
+            <View style={{backgroundColor:'orange'}}>
+               <Text style={{color: 'white',textAlign: 'center'}}>TouchableWithoutFeedback</Text>
+            </View>
+         </TouchableWithoutFeedback>
+      </View>
    );
 };
 
 export default Demo;
 ```
-### ✨  FlatList:
+
+### 📝 Pressable:
+```js
+<Pressable 
+   style={({pressed})=>({backgroundColor:pressed?'#999':'#999'})}
+   disabled={false}
+   android_ripple={{color:'yellow'}}
+   onPress={()=>Alert.alert('onPress fired!')}
+   onLongPress={()=>Alert.alert('onLongPress fired!')}
+   delayLongPress={5000}
+   hitSlop={{bottom:50}}
+>
+   <View>
+      <Text style={styles.buttonText}>Click me</Text>
+   </View>
+</Pressable>
+```
+
+### 📝 FlatList:
 ```js
 import {FlatList} from 'react-native';
 
@@ -166,6 +219,10 @@ const Demo = () => {
             keyExtractor={(item) => item.id}
             data={data}
             renderItem={loadData}
+            horizontal
+            showHorizontalScrollIndicator={false}
+            numColumns={2}
+            inverted
          />
       </View>
    );
@@ -173,11 +230,39 @@ const Demo = () => {
 
 export default Demo;
 ```
-### ✨  Section List:
-```js
 
+### 📝 Section List:
+```js
+import {
+   View,Text,SectionList
+} from 'react-native';
+
+const data = [
+      {id:1,name:'Fruit1',data:['Apple','Orange']},
+      {id:2,name:'Fruit2',data:['Apple','Orange']},
+      {id:3,name:'Fruit3',data:['Apple','Orange']},
+      {id:4,name:'Fruit4',data:['Apple','Orange']}
+   ]
+
+export default function Demo(){
+   return(
+     <View>
+        <SectionList
+            keyExtractor={(item,index)=>index}
+            sections={data}
+            renderSectionHeader={({section})=>{
+               return <Text>{section.name}</Text>
+            }}
+            renderItem={({item})=>{
+               return <Text>{item}</Text>
+            }}
+        />
+     </View> 
+   );
+}
 ```
-### ✨  ScrollView:
+
+### 📝 ScrollView:
 ```js
 import {ScrollView} from 'react-native';
 
@@ -191,7 +276,72 @@ const Demo = () => {
 
 export default Demo;
 ```
-### ✨  Image:
+
+### 📝 Refresh Control:
+```js
+import { useState } from 'react';
+import {
+   View,Text,FlatList,
+   RefreshControl,ScrollView
+} from 'react-native';
+
+const myData = [
+         {
+            id: 1,
+            name: 'Smith'
+         },
+         {
+            id: 2,
+            name: 'David'
+         },
+         {
+            id: 3,
+            name: 'John'
+         },
+         {
+            id: 4,
+            name: 'Doe'
+         },
+     ]
+
+export default function Demo(){
+   const [data,setData] = useState(myData)
+   const [refreshing,setRefreshing] = useState(false)
+   
+   function RefreshHandler(){
+      setRefreshing(true);
+      let newData = [...data,{id:data.length+1,name:'rabbi'}]
+      setData(newData);
+      setRefreshing(false);
+   }
+   
+   return(
+      <View>
+        <FlatList 
+            keyExtractor={(item)=>item.id}
+            data={data}
+            renderItem={({item})=>{
+               return(
+                  <View>
+                     <Text>{item.name}</Text>
+                  </View>
+               );
+            }}
+            refreshControl={
+               <RefreshControl
+                  refreshing={refreshing}
+                  onRefresh={RefreshHandler}
+                  colors={['red']}
+               />
+            }
+        />
+        <Text>{JSON.stringify(data)}</Text>
+     </View>
+   );
+}
+```
+
+### 📝 Image & Image Background:
 ```js
 import {Image} from 'react-native';
 
@@ -206,7 +356,8 @@ const Demo = () => {
 
 export default Demo;
 ```
-### ✨  Custom Fonts:
+
+### 📝 Custom Fonts:
 * ***expo install @expo-google-fonts/baloo-bhai-2***
 ```js
 // import {View,Text} from 'react-native';
@@ -234,7 +385,7 @@ const Demo = () => {
 
 export default Demo;
 ```
-### ✨  Icons:
+### 📝 Icons:
 * ***expo install @expo/vector-icons***
 ```js
 import {View,Text} from 'react-native';
@@ -258,17 +409,45 @@ const Demo = () => {
 
 export default Demo;
 ```
-### ✨  Text Input:
+
+### 📝 Icons:
+*  ***npm i @expo/vector-icons***
+```js
+import {
+   View,Text
+} from 'react-native';
+import { FontAwesome5 } from '@expo/vector-icons';
+
+export default function Demo(){
+   return(
+      <View>
+        <FontAwesome5
+            name='home'
+            size={20}
+            color='red'
+        />
+     </View>
+   );
+}
+```
+
+### 📝 Text Input:
 ```js
 import {View,TextInput} from 'react-native';
-import { FontAwesome5 } from '@expo/vector-icons';
 
 const Demo = () => {
    return(
       <View>
          <TextInput
-            onChangeText={}
-            value={}
+            // value='Hello'
+            // onChangeText={}
+            placeholder='Type your name...'
+            // keyboardType='phone-pad' // --> phone-pad
+            selectionColor='red'
+            // maxLength={5}
+            editable={true}
+            // multiline
+            secureTextEntry
          />
       </View>
    );
@@ -276,11 +455,60 @@ const Demo = () => {
 
 export default Demo;
 ```
-### ✨  Switch:
-```js
 
+### 📝 Switch:
+```js
+import {View,Switch} from 'react-native';
+
+const Demo = () => {
+   return(
+      <View>
+         <Switch
+            value={true}
+            // onValueChange={}
+            tintColor='red'
+            thumbColor='blue'
+            trackColor='blue'
+            // disabled
+         />
+      </View>
+   );
+};
+
+export default Demo;
 ```
-### ✨  StausBar:
+
+### 📝 Checkbox:
+```js
+import { useState } from 'react';
+import {View,Text,Switch} from 'react-native';
+import CheckBox from 'expo-checkbox';
+
+const Demo = () => {
+   const [checked,setChecked] = useState(false)
+   
+   function handleCheckbox(){
+      setChecked(!checked);
+   }
+   
+   return(
+      <View style={{margin:10,flexDirection:'row'}}>
+         <CheckBox
+            value={checked}
+            onValueChange={handleCheckbox}
+            color={checked?'teal':'red'}
+         />
+         <Text 
+            style={{marginLeft:5}}
+         >I agree all tos.</Text>
+      </View>
+   );
+};
+
+export default Demo;
+```
+
+### 📝 StausBar:
 ```js
 import {View,StatusBar} from 'react-native';
 
@@ -297,11 +525,13 @@ const Demo = () => {
 
 export default Demo;
 ```
-### ✨  Header Styling: 
+
+### 📝 Header Styling:
 ```js
 
 ```
-### ✨  Link:
+
+### 📝 Link:
 ```js
 import {View,Link} from 'react-native';
 
@@ -317,7 +547,33 @@ const Demo = () => {
 
 export default Demo;
 ```
-### ✨  :
+
+### 📝 Alert & Toast Message:
+```js
+
+```
+### 📝 Modal:
+```js
+
+```
+### 📝 AsyncStorage:
+```js
+
+```
+### 📝 SQLite Database:
+```js
+
+```
+### 📝 Activity Indicator:
+```js
+
+```
+### 📝 Web View:
+```js
+
+```
+
+### 📝 
 ```js
 
 ```
