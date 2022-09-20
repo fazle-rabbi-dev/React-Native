@@ -1,5 +1,8 @@
 <h1 align='center'>REACT NATIVE</h1>
 
+<details>
+<summary>All About React Native!</summary>
+
 ### `🤔 What is React-Native?`
 
 > **React Native is a cross-platform mobile application development framework that Facebook created in 2015. React Native uses JavaScript as the underlying programming language, and it aims to help developers build native mobile apps for both Android and iOS devices with a single codebase.**
@@ -16,7 +19,9 @@
 
 > **Hybrid apps combine both web applications created for web browser and native applications that are designed for a particular platform and have to be installed on a device.**
 
-### `✨ All About React-Native:`
+</details>
+
+* ### ` For More About:`
 * https://code.tutsplus.com/tutorials/what-is-react-native--cms-38028
 
 ### 🚨 `PREREQUISITES:`
