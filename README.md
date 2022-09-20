@@ -24,7 +24,7 @@
 * ### ` For More About:`
 * https://code.tutsplus.com/tutorials/what-is-react-native--cms-38028
 
-### 🚨 `PREREQUISITES:`
+### `🚨 PREREQUISITES:`
 * ***Html***
 * ***Css***
 * ***Javascript***
