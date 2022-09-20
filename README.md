@@ -24,7 +24,7 @@
 * ### ` For More About:`
 * https://code.tutsplus.com/tutorials/what-is-react-native--cms-38028
 
-### `🚨 PREREQUISITES:`
+### `🚨PREREQUISITES:`
 * ***Html***
 * ***Css***
 * ***Javascript***
@@ -34,7 +34,7 @@
 
 <h1 align='center'>Table Of Contents</h1>
 
-### 💡 `Fundamentals:`
+### `💡Fundamentals:`
 
 * [Setup React Native App]()
 * [View,Text]()
@@ -68,7 +68,7 @@
    * `useState`
    * `useEffect`
 
-### 💡 `Navigation:`
+### `💡Navigation:`
 * [Stack Navigator]()
 * [Tab Navigator]()
 * [Drawer Navigator]()
