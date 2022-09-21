@@ -36,7 +36,7 @@
 
 ### `💡Fundamentals:`
 
-* [Setup React Native App]()
+* [Setup React Native App](#setup)
 * [View,Text]()
 * [Styling Components]()
 * [Apply Multiple Style]()
@@ -55,21 +55,28 @@
 * [Switch]()
 * [Checkbox]()
 * [StausBar]()
-* [Header Styling]()
 * [Link]()
 * [Alert & Toast Message]()
 * [Modal]()
 * [Async Storage]()
-* [SQLite Database]()
+* `SQLite Database`
 * [Activity Indicator]()
 * [Web View]()
+* [Copy Text]()
+* [Splash Screen]()
+* `Push Notification`
+* `Google Maps`
+* [Back Button Handler]()
 
 ### `💡Navigation:`
 * [Stack Navigator]()
 * [Tab Navigator]()
+* [Material Bottom Tab Navigator]()
+* [Material Top Navigator]()
 * [Drawer Navigator]()
 * [useNavigate Hook]()
 * [Passing Data Between Screen]()
+* [Header Styling]()
 
 ### 🚀 ***Generate Apk File:***
 * `Create Account In Expo`
@@ -81,11 +88,16 @@
 
 <h1 align='center'>Fundamentals</h1>
 
+<a id='setup'></a>
+
 ### 📝Setup React Native App:
 ```bash
 $ npm i expo
 $ expo init my-app
 ```
+
+<a id='setup'></a>
+
 ### 📝 View,Text:
 ```js
 // View Like Html -> <div></div>
@@ -102,14 +114,44 @@ const Demo = () => {
 
 export default Demo;
 ```
+
+<a id='setup'></a>
+
 ### 📝 Styling Components:
 ```js
+import {
+   View,Text,StyleSheet
+} from 'react-native';
+import {WebView} from 'react-native-webview';
 
-```
-### 📝 Apple Multiple Style:
-```js
+const Demo = () => {
+   return(
+      <View style={styles.main}>
+         <Text style={[styles.text,styles.white]}>Im A Text</Text>
+      </View>
+   );
+};
 
+const styles = StyleSheet.create({
+   main:{
+      margin: 20,
+      backgroundColor: 'red',
+      padding: 10,
+      borderRadius: 5
+   },
+   text:{
+      fontWeight: 'bold',
+      textAlign: 'center',
+   },
+   // For Apple Multiple Style:
+   white:{
+      color: 'white'
+   }
+})
+
+export default Demo;
 ```
+
 ### 📝 Button:
 ```js
 import {Button} from 'react-native';
@@ -526,11 +568,6 @@ const Demo = () => {
 export default Demo;
 ```
 
-### 📝 Header Styling:
-```js
-
-```
-
 ### 📝 Link:
 ```js
 import {View,Link} from 'react-native';
@@ -550,32 +587,401 @@ export default Demo;
 
 ### 📝 Alert & Toast Message:
 ```js
+import { useState } from 'react';
+import {View,Text,Button,Alert,ToastAndroid} from 'react-native';
+import CheckBox from 'expo-checkbox';
 
+const Demo = () => {
+   const [checked,setChecked] = useState(false)
+   
+   function handleAlert(){
+      Alert.alert('Warning!','Are you sure you agree our terms of services...',[
+            {text:'Ok',onPress:()=>console.log('Ok button pressed!')},
+            {text:'Cancel',onPress:()=>console.log('Cancel button pressed!')},
+            {text:'I know',onPress:()=>console.log('I know button pressed!')},
+         ],{
+            cancelable:true,
+            onDismiss:()=>console.log('Back Button pressed!')
+         });
+   }
+   
+   function handleToast(){
+      // ToastAndroid.show(
+      //    'Hey there, im a toast message.',
+      //    ToastAndroid.SHORT // --> SHORT/LONG
+      // )
+      
+      // ToastAndroid.showWithGravity(
+      //    'Hey there, im a toast message.',
+      //    ToastAndroid.SHORT, // --> SHORT/LONG
+      //    ToastAndroid.CENTER // --> TOP/BOTTOM/CENTER
+      // )
+      
+      ToastAndroid.showWithGravityAndOffset(
+         'Hey there, im a toast message.',
+         ToastAndroid.SHORT, // --> SHORT/LONG
+         ToastAndroid.TOP,0,0 // --> width & height
+      )
+   }
+   
+   return(
+      <View style={{margin:10,flexDirection:'column'}}>
+         <Button
+            onPress={handleAlert}
+            title='Alert'
+            color='#784beb'
+         />
+         
+         <Button
+            onPress={handleToast}
+            title='Toast'
+            color='red'
+         />
+      </View>
+   );
+};
+
+export default Demo;
 ```
+
 ### 📝 Modal:
 ```js
+import { useState } from 'react';
+import {
+   View,Text,StyleSheet,
+   Modal,Button
+} from 'react-native';
 
+const Demo = () => {
+   const [isModalOpen,setIsModalOpen] = useState(false)
+   
+   function handleModal(){
+      setIsModalOpen(!isModalOpen);
+   }
+   
+   return(
+      <View>
+         <Modal
+            visible={isModalOpen}
+            onRequestClose={handleModal}
+            transparent
+            animationType='fade'
+         >
+            <View style={styles.modalContainer}>
+               <View style={[styles.modal]}>
+                  <Text style={styles.title}>Warning!</Text>
+                  <Text style={styles.text}>Hey there, im a modal box.</Text>
+                  <Button
+                     onPress={handleModal}
+                     title='I know'
+                     color='teal'
+                  />
+               </View>
+            </View>
+         </Modal>
+         <Button
+            onPress={handleModal}
+            title='Open Modal'
+            color='green'
+         />
+      </View>
+   );
+};
+
+const styles = StyleSheet.create({
+   modalContainer:{
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center'
+   },
+   modal:{
+      backgroundColor: 'black',
+      padding: 20,
+      borderRadius: 5,
+      height: 300,
+      width: '90%'
+   },
+   title:{
+      fontSize: 40,
+      color: 'white'
+   },
+   text:{
+      fontSize: 22,
+      color: '#ededed'
+   }
+})
+
+export default Demo;
 ```
+
 ### 📝 AsyncStorage:
 ```js
+// It's like Javascript localStorage
+import { AsyncStorage } from 'react-native';
 
+AsyncStorage.setItem()
+AsyncStorage.getItem()
+AsyncStorage.removeItem()
+AsyncStorage.mergeItem()
+AsyncStorage.clear()
 ```
+
 ### 📝 SQLite Database:
 ```js
 
 ```
+
 ### 📝 Activity Indicator:
 ```js
+// it's a spinner
+import {ActivityIndicator} from 'react-native';
 
+<ActivityIndicator
+   color='red'
+   size={60}
+/>
 ```
+
 ### 📝 Web View:
+* `$ npm i react-native-webview`
 ```js
+import {
+   StatusBar
+} from 'expo-status-bar';
+import React, {
+   useState,
+   useRef,
+   useEffect
+} from 'react';
+import {
+   Alert,
+   Button,
+   ActivityIndicator,
+   Linking,
+   SafeAreaView,
+   StyleSheet,
+   BackHandler,View,Text
+} from 'react-native';
+import {
+   WebView
+} from 'react-native-webview';
 
+export default function Web() {
+   const webViewRef = useRef()
+   const [isLoadong,setLoading] = useState(false);
+
+   // Error component:
+   function Err(){
+      return(
+        <View style={{
+          flex:1,
+          height: 300,
+          //width: '100%',
+          backgroundColor: 'red'
+        }}>
+           <Text>Error</Text>
+        </View> 
+      );
+   }
+   
+   // Go Back:
+   function handleBackButtonPress(){
+      try {
+         webViewRef.current.goBack()
+      } catch (err) {
+         console.log("[handleBackButtonPress] Error : ", err.message)
+      }
+   }
+
+   // Go Forword:
+   function handleForwordButtonPress() {
+      try {
+         webViewRef.current.goForward()
+      } catch (err) {
+         console.log("[handleBackButtonPress] Error : ", err.message)
+      }
+   }
+   
+   // Stop Loading:
+   function handleStopButtonPress() {
+      try {
+         webViewRef.current.stopLoading()
+      } catch (err) {
+         console.log("[handleBackButtonPress] Error : ", err.message)
+      }
+   }
+   
+   // Reload:
+   function handleReloadButtonPress() {
+      try {
+         webViewRef.current.reload()
+      } catch (err) {
+         console.log("[handleBackButtonPress] Error : ", err.message)
+      }
+   }
+
+   useEffect(() => {
+      BackHandler.addEventListener("hardwareBackPress", handleBackButtonPress)
+      return () => {
+         BackHandler.removeEventListener("hardwareBackPress", handleBackButtonPress)
+      };
+   }, []);
+
+   return (
+      <SafeAreaView style={styles.safeArea}>
+            <Button
+         title='Go Back'
+         color='purple'
+         onPress={handleBackButtonPress}
+         />
+            <Button
+         title='Go Forword'
+         color='deeppink'
+         onPress={handleForwordButtonPress}
+         />
+            <Button
+         title='Stop Loading'
+         color='#222'
+         onPress={handleStopButtonPress}
+         />
+            <Button
+         title='Reload'
+         color='#6421db'
+         onPress={handleReloadButtonPress}
+         />
+         <Err/>
+            <WebView
+         //  originWhiteList={['*']}
+         source={ { uri: 'https://google.com' }}
+         style={styles.container}
+         ref={webViewRef}
+         onError={()=> {
+            // Alert.alert('Error!', 'Please check your internet connection')
+            return <Err/>
+         }}
+         onLoadStart={(syntheticEvent) => {
+            setLoading(true);
+         }}
+         //  onShouldStartLoadWithRequest={(event)=>{
+         //     if (event.navigationType === 'click') {
+         //          if (!event.url.match(/(google\.com\/*)/) ) {
+         //              Linking.openURL(event.url)
+         //              return false
+         //          }
+         //          return true
+         //     }
+         //     else{
+         //          return true;
+         //     }
+         //  }}
+         onLoadEnd={(syntheticEvent) => {
+            setLoading(false);
+         }}
+         />
+         {isLoadong && (
+            <ActivityIndicator
+               color="red"
+               size="large"
+               style={styles.loading}
+            />
+         )}
+      </SafeAreaView>
+   );
+}
+
+const styles = StyleSheet.create({
+   safeArea: {
+      flex: 1,
+      backgroundColor: '#234356'
+   },
+   loading: {
+      position: 'absolute',
+      left: 0,
+      right: 0,
+      top: 0,
+      bottom: 0,
+      alignItems: 'center',
+      justifyContent: 'center'
+   },
+   container: {
+      flex: 1,
+      backgroundColor: '#fff',
+      alignItems: 'center',
+      justifyContent: 'center',
+   },
+});
 ```
 
-### 📝 
+### 📝 Back Button Handler:
 ```js
+useEffect(() => {
+    const backAction = () => {
+      Alert.alert("Hold on!", "Are you sure you want to go back?", [
+       {
+          text: "Cancel",
+          onPress: () => null,
+          style: "cancel"
+       },
+       { text: "YES", onPress: () => BackHandler.exitApp() }
+      ]);
+      handleBackButtonPress()
+      // return true;
+    };
 
+    const backHandler = BackHandler.addEventListener(
+      "hardwareBackPress",
+      backAction
+    );
+
+    return () => backHandler.remove();
+ }, []);
 ```
+
+---
 
 <h1 align='center'>Navigation</h1>
+
+### 📝 Stack Navigator:
+```js
+
+```
+
+### 📝 Tab Navigator:
+```js
+
+```
+
+### 📝 Material Bottom Tab Navigator:
+```js
+
+```
+
+### 📝 Material Top Tab Navigator:
+```js
+
+```
+
+### 📝 Drawer Navigator:
+* `npm i react-native-gesture-handler`
+* `npm i react-native-reanimated`
+* **babel.config.js**
+```js
+module.exports = function(api) {
+  api.cache(true);
+  return {
+    presets: ['babel-preset-expo'],
+    plugins: ['react-native-reanimated/plugin']
+  };
+};
+
+```
+
+### 📝 Passing Data Between Screen:
+```js
+
+```
+
+### 📝 Header Styling:
+```js
+
+```
