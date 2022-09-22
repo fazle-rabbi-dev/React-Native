@@ -44,7 +44,7 @@
 ### `⚡Extra:`
 * [Fonts Directory](https://directory.vercel.app/)
 
-#### `⏳How Many Does It Takes To Learn?`
+### `⏳How Many Does It Takes To Learn?`
  After learning HTML CSS JAVASCRIPT and REACT.Js it took me just ***9 days*** to learn all the following topics.
 
 ---
