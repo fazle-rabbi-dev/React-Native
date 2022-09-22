@@ -1,7 +1,7 @@
 <h1 align='center'>REACT NATIVE</h1>
 
 <details>
-<summary>All About React Native!</summary>
+<summary>All About Of React Native!</summary>
 
 ### `🤔 What is React-Native?`
 
