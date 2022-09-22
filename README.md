@@ -30,7 +30,7 @@
 * ***Javascript***
 * ***React.js***
 
-### `🔥 Learning Resources:`
+### `🔥Learning Resources:`
 1. ***Youtube:***
    * [Thapa Technical]()
    * [Programming With Mash]()
