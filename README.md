@@ -84,6 +84,8 @@
 * `Push Notification`
 * `Google Maps`
 * [Back Button Handler](#BackHandler)
+* [Copy To Clipboard](#copyToClipboard)
+* [Get NetInfo](#Netinfo)
 
 <a id='Navigation'></a>
 
@@ -1055,6 +1057,30 @@ useEffect(() => {
 
     return () => backHandler.remove();
  }, []);
+```
+
+[**⬆ Back to Top**](#Fundamentals)
+
+<a id='copyToClipboard'></a>
+
+### 📝 Copy To Clipboard:
+```
+import * as Clipboard from 'expo-clipboard';
+
+// For copy:
+const copyToClipboard = async (link) => {
+   await Clipboard.setStringAsync(link);
+      ToastAndroid.show(
+         'Copied successfuly!',
+         ToastAndroid.SHORT
+      )
+};
+   
+// For Get Copied Text:
+const getClipboardText = async (link) => {
+   let text = await Clipboard.getStringAsync();
+};
+
 ```
 
 [**⬆ Back to Top**](#Fundamentals)
