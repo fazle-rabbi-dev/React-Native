@@ -43,6 +43,7 @@
 
 ### `⚡Extra:`
 * [Fonts Directory](https://directory.vercel.app/)
+* [Icons](https://icons.expo.fyi/)
 
 ### `⏳How Many Does It Takes To Learn?`
  After learning HTML CSS JAVASCRIPT and REACT.Js it took me just ***9 days*** to learn all the following topics.
@@ -1064,6 +1065,7 @@ useEffect(() => {
 <a id='copyToClipboard'></a>
 
 ### 📝 Copy To Clipboard:
+* ***expo install expo-clipboard***
 ```
 import * as Clipboard from 'expo-clipboard';
 
