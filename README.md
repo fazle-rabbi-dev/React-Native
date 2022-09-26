@@ -44,6 +44,7 @@
 ### `⚡Extra:`
 * [Fonts Directory](https://directory.vercel.app/)
 * [Icons](https://icons.expo.fyi/)
+* [Expo](https://expo.dev/)
 
 ### `⏳How Many Does It Takes To Learn?`
  After learning HTML CSS JAVASCRIPT and REACT.Js it took me just ***9 days*** to learn all the following topics.
@@ -86,7 +87,9 @@
 * `Google Maps`
 * [Back Button Handler](#BackHandler)
 * [Copy To Clipboard](#copyToClipboard)
-* [Get NetInfo](#Netinfo)
+* [Get NetInfo](https://github.com/react-native-netinfo/react-native-netinfo)
+* [.env Variable](https://dev.to/dallington256/using-env-file-in-react-native-application-3961)
+* `Fingerprint`
 
 <a id='Navigation'></a>
 
