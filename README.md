@@ -286,7 +286,7 @@ import {FlatList} from 'react-native';
 const data = [
    {
       id: 1,
-      name: 'Test
+      name: 'Test'
    }
 ]
 
@@ -659,12 +659,12 @@ export default Demo;
 
 ### 📝 Link:
 ```js
-import {View,Link} from 'react-native';
+import {View,Linking} from 'react-native';
 
 const Demo = () => {
    return(
       <View>
-         <Text onPress={Link.openURL('https://example.com')}>
+         <Text onPress={Linking.openURL('https://example.com')}>
             Click Me
          </Text>
       </View>
