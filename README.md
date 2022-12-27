@@ -3,23 +3,23 @@
 <details>
 <summary>All About Of React Native!</summary>
 
-### `🤔 What is React-Native?`
+### What is React-Native
 
 React Native is a cross-platform mobile application development framework that Facebook created in 2015. React Native uses JavaScript as the underlying programming language, and it aims to help developers build native mobile apps for both Android and iOS devices with a single codebase.
 
-### `🤔 What Is Cross-Platform Development?`
+### What Is Cross-Platform Development
 
 Cross-platform development is the art of writing software that runs on different platforms; you write your codebase once and share it across different platforms. Cross-platform development provides you with a broad target audience since you have various options for running your codebase. For example, one app can be shared across both Android and iOS devices, resulting in a broader user base.
 
-### `🤔 What does meaning native apps?`
+### What does meaning native apps
 
 The term native app development refers to building a mobile app exclusively for a single platform. The app is built with programming languages and tools that are specific to a single platform. For example, you can develop a native Android app with Java or Kotlin and choose Swift and Objective-C for iOS apps.
 
-### `🤔 What is hybrid app?`
+### What is hybrid app
 
 Hybrid apps combine both web applications created for web browser and native applications that are designed for a particular platform and have to be installed on a device.
 
-* [Learn More](https://code.tutsplus.com/tutorials/what-is-react-native--cms-38028)
+✅ [Learn More](https://code.tutsplus.com/tutorials/what-is-react-native--cms-38028)
 
 </details>
 
