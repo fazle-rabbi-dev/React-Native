@@ -1,52 +1,66 @@
-<h1 align='center'>REACT NATIVE</h1>
+<h1 align='center'><a href="#">REACT NATIVE</a></h1>
 
 <details>
 <summary>All About Of React Native!</summary>
 
 ### `🤔 What is React-Native?`
 
-> **React Native is a cross-platform mobile application development framework that Facebook created in 2015. React Native uses JavaScript as the underlying programming language, and it aims to help developers build native mobile apps for both Android and iOS devices with a single codebase.**
+React Native is a cross-platform mobile application development framework that Facebook created in 2015. React Native uses JavaScript as the underlying programming language, and it aims to help developers build native mobile apps for both Android and iOS devices with a single codebase.
 
 ### `🤔 What Is Cross-Platform Development?`
 
-> **Cross-platform development is the art of writing software that runs on different platforms; you write your codebase once and share it across different platforms. Cross-platform development provides you with a broad target audience since you have various options for running your codebase. For example, one app can be shared across both Android and iOS devices, resulting in a broader user base.**
+Cross-platform development is the art of writing software that runs on different platforms; you write your codebase once and share it across different platforms. Cross-platform development provides you with a broad target audience since you have various options for running your codebase. For example, one app can be shared across both Android and iOS devices, resulting in a broader user base.
 
 ### `🤔 What does meaning native apps?`
 
-> **The term native app development refers to building a mobile app exclusively for a single platform. The app is built with programming languages and tools that are specific to a single platform. For example, you can develop a native Android app with Java or Kotlin and choose Swift and Objective-C for iOS apps.**
+The term native app development refers to building a mobile app exclusively for a single platform. The app is built with programming languages and tools that are specific to a single platform. For example, you can develop a native Android app with Java or Kotlin and choose Swift and Objective-C for iOS apps.
 
 ### `🤔 What is hybrid app?`
 
-> **Hybrid apps combine both web applications created for web browser and native applications that are designed for a particular platform and have to be installed on a device.**
+Hybrid apps combine both web applications created for web browser and native applications that are designed for a particular platform and have to be installed on a device.
+
+* [Learn More](https://code.tutsplus.com/tutorials/what-is-react-native--cms-38028)
 
 </details>
 
-* ### ***For More About:***
-* https://code.tutsplus.com/tutorials/what-is-react-native--cms-38028
 
-### `🚨PREREQUISITES:`
-* ***Html***
-* ***Css***
-* ***Javascript***
-* ***React.js***
+<div align="center">
 
-### `🔥Learning Resources:`
-1. ***Youtube:***
+## `PREREQUISITES`
+
+You Should Learn The Following Technology Before Jump In React-Native.Else you can't understand React-Native
+
+ ![](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+ ![](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+ ![](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+ ![](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+
+</div>
+
+<div align="center">
+
+## `Learning Resources`
+   
+</div>
+
+1. **Youtube:**
    * [Thapa Technical](https://youtube.com/playlist?list=PLwGdqUZWnOp354xMD8u0hxX-1qmCvfLiY)
    * [Programming With Mash](https://youtube.com/playlist?list=PL8kfZyp--gEXs4YsSLtB3KqDtdOFHMjWZ)
    * [Pradip Debnath](https://youtube.com/playlist?list=PLQWFhX-gwJblNXe9Fj0WomT0aWKqoDQ-h)
+   * [Bug Ninja](https://youtube.com/playlist?list=PLO3Dk6jx9EISheYkFbI9Hd_AF9A99i0L-)
+   * [MissCoding](https://youtube.com/playlist?list=PLzzljR-_nWVXKtQV4VSvM_pbRuEFD6QVK)
 
-2. ***Websites:***
+2. **Websites:**
    * [JavatPoint](https://www.javatpoint.com/react-native-tutorial)
    * [Official Docs](https://reactnative.dev/docs/getting-started)
    * [React Navigation](https://reactnavigation.org/)
 
 ### `⚡Extra:`
-* [Fonts Directory](https://directory.vercel.app/)
-* [Icons](https://icons.expo.fyi/)
-* [Expo](https://expo.dev/)
+* [Fonts Directory](https://directory.vercel.app/) `use custom fonts`
+* [Icons](https://icons.expo.fyi/) `use icons`
+* [Expo](https://expo.dev/) `expo cli documentation`
 
-### `⏳How Many Does It Takes To Learn?`
+### ⏳How Many Does It Takes To Learn?
  After learning HTML CSS JAVASCRIPT and REACT.Js it took me just ***9 days*** to learn all the following topics.
 
 ---
@@ -79,17 +93,28 @@
 * [Alert & Toast Message](#Alert)
 * [Modal](#Modal)
 * [Async Storage](#AsyncStorage)
-* `SQLite Database`
 * [Activity Indicator](#ActivityIndicator)
 * [Web View](#WebView)
 * [Copy Text](#Copy)
-* `Push Notification`
-* `Google Maps`
 * [Back Button Handler](#BackHandler)
 * [Copy To Clipboard](#copyToClipboard)
-* [Get NetInfo](https://github.com/react-native-netinfo/react-native-netinfo)
 * [.env Variable](https://dev.to/dallington256/using-env-file-in-react-native-application-3961)
-* `Fingerprint`
+
+<a id='Advanced'></a>
+
+### `💡Advanced:` *Not Available*
+* [Document Picker](#docs)
+* [Play Sound](#play)
+* [Get Device Info](#device)
+* [Get NetInfo](https://github.com/react-native-netinfo/react-native-netinfo)
+* [Bio Metrics](#bio)
+* [Access Storage,Camera,Call logs etc](#access)
+* [Push Notification](#notification)
+* [Use Firebase](#firebase)
+* [Sqlite Database](#sqlite)
+* [Google Admob Ads](#ads)
+* [Eas CLI](#eas)
+* [Google Maps](#maps)
 
 <a id='Navigation'></a>
 
@@ -107,6 +132,9 @@
 * `$ expo login`
 * `$ expo build:android`
 * **⌛ Wait 20-30 Minutes**
+* #### Another Way:
+* `$ eas build -p android --profile preview`
+* **⌛ Wait 8-10 Minutes**
 
 ---
 
