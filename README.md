@@ -103,8 +103,10 @@ You Should Learn The Following Technology Before Jump In React-Native.Else you c
 <a id='Advanced'></a>
 
 ### `💡Advanced:` *Not Available*
+* [Gradient Generator](#grad)
+* [Play Video](#playvid)
+* [Play Audio](#playaud)
 * [Document Picker](#docs)
-* [Play Sound](#play)
 * [Get Device Info](#device)
 * [Get NetInfo](https://github.com/react-native-netinfo/react-native-netinfo)
 * [Bio Metrics](#bio)
