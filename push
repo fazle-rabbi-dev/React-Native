@@ -1,8 +1,10 @@
 git add .
-#read -p 'Upadted (y,n):' opt
-#if($opt == 'y'){
-
-#}
-read -p '[*] Type Commit Message:' msg
-git commit -m "$msg"
-git push
+read -p 'Upadted (y,n):' opt
+if [ $opt == 'y' ]; then
+    git commit -m "Updated"
+    git push
+else
+    read -p '[*] Type Commit Message:' msg
+    git commit -m "$msg"
+    git push
+fi
