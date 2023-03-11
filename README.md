@@ -43,7 +43,7 @@ You Should Learn The Following Technology Before Jump In React-Native.Else you c
    
 </div>
 
-1. **Youtube:**
+1. **Youtube Playlists:**
    * [Thapa Technical](https://youtube.com/playlist?list=PLwGdqUZWnOp354xMD8u0hxX-1qmCvfLiY)
    * [Programming With Mash](https://youtube.com/playlist?list=PL8kfZyp--gEXs4YsSLtB3KqDtdOFHMjWZ)
    * [Pradip Debnath](https://youtube.com/playlist?list=PLQWFhX-gwJblNXe9Fj0WomT0aWKqoDQ-h)
@@ -55,13 +55,13 @@ You Should Learn The Following Technology Before Jump In React-Native.Else you c
    * [Official Docs](https://reactnative.dev/docs/getting-started)
    * [React Navigation](https://reactnavigation.org/)
 
-### `⚡Extra:`
+### ⚡Extra:
 * [Fonts Directory](https://directory.vercel.app/) `use custom fonts`
 * [Icons](https://icons.expo.fyi/) `use icons`
 * [Expo](https://expo.dev/) `expo cli documentation`
 
 ### ⏳How Many Does It Takes To Learn?
- After learning HTML CSS JAVASCRIPT and REACT.Js it took me just ***9 days*** to learn all the following topics.
+ After learning HTML CSS JAVASCRIPT and REACT.Js it took me just ***9 days*** to learn basic to intermidiate topics.
 
 ---
 
@@ -70,6 +70,9 @@ You Should Learn The Following Technology Before Jump In React-Native.Else you c
 <a id='Fundamentals'></a>
 
 ### `💡Fundamentals:`
+
+<details>
+<summary>Click To Expand </summary>
 
 * [Setup React Native App](#Setup)
 * [View,Text](#View)
@@ -100,27 +103,44 @@ You Should Learn The Following Technology Before Jump In React-Native.Else you c
 * [Copy To Clipboard](#copyToClipboard)
 * [.env Variable](https://dev.to/dallington256/using-env-file-in-react-native-application-3961)
 
+</details>
+
 <a id='Advanced'></a>
 
-### `💡Advanced:` *Not Available*
-* [Gradient Generator](#grad)
+### `💡Advanced:`
+
+<details>
+<summary>Click To Expand </summary>
+
+* [Apply Global Style](#globalStyle)
 * [Play Video](#playvid)
 * [Play Audio](#playaud)
-* [Document Picker](#docs)
 * [Get Device Info](#device)
 * [Get NetInfo](https://github.com/react-native-netinfo/react-native-netinfo)
-* [Bio Metrics](#bio)
-* [Access Storage,Camera,Call logs etc](#access)
 * [Push Notification](#notification)
-* [Use Firebase](#firebase)
 * [Sqlite Database](#sqlite)
 * [Google Admob Ads](#ads)
+
+---
+
+* #### `NOT AVILABLE`
+* [Gradient Generator](#grad)
+* [Document Picker](#docs)
+* [Bio Metrics](#bio)
+* [Access Storage,Camera,Call logs etc](#access)
+* [Use Firebase](#firebase)
 * [Eas CLI](#eas)
 * [Google Maps](#maps)
+
+</details>
 
 <a id='Navigation'></a>
 
 ### `💡Navigation:`
+
+<details>
+<summary>Click To Expand </summary>
+
 * [Native Stack Navigator](#Native)
 * [Bottom Tab Navigator](#Bottom)
 * [Material Bottom Tab Navigator](#MaterialBottom)
@@ -129,14 +149,20 @@ You Should Learn The Following Technology Before Jump In React-Native.Else you c
 * [useNavigate Hook](#useNavigate)
 * [Passing Data Between Screen](#Passing)
 
+</details>
+
 ### 🚀 ***Generate Apk File:***
 * `Create Account In Expo`
 * `$ expo login`
 * `$ expo build:android`
-* **⌛ Wait 20-30 Minutes**
-* #### Another Way:
-* `$ eas build -p android --profile preview`
-* **⌛ Wait 8-10 Minutes**
+* **⌛ It takes about 20-30 Minutes**
+* [!] Apk size will be 70 Mb !
+* #### BEST WAY:
+* `$eas build:configure` **Initialization for eas build**
+* `$ eas build -p android --profile preview` **generate apk file**
+* `$ eas build -p android --profile development` **generate dev client apk for run app**
+* `$ eas build -p android --profile production` **generate file for (play/app) store**
+* **⌛ It takes about 8-10 Minutes**
 
 ---
 
@@ -1119,6 +1145,119 @@ const getClipboardText = async (link) => {
 ```
 
 [**⬆ Back to Top**](#Fundamentals)
+
+
+
+
+
+
+---
+
+<h1 align='center'>Advanced</h1>
+<p id=''></p>
+
+### Apple Global Style
+```js
+
+```
+[**⬆ Back to Top**](#)
+
+
+<p id=''></p>
+
+### Play Video
+```js
+
+```
+[**⬆ Back to Top**](#)
+
+
+<p id=''></p>
+
+### Play Audio
+```js
+
+```
+[**⬆ Back to Top**](#)
+
+
+<p id=''></p>
+
+### Get Device Info
+* ***For use any third party pure react-native library Ex:react-native-google-ads,react-native-device-info we need to build a dev client apk.For this we need to install eas cli by using*** `npm i -g eas-cli` ***and use the bellow command:***
+    * *eas build:configure*
+    * *eas build -p android --profile development*
+    * *now install this dev-client app and run our app using* `$ expo start --dev-client` insted of `$ expo start` *Then, open our app in dev-client app insted of* `expo go app`
+```js
+import React from 'react';
+import { View, Text } from 'react-native';
+import { Platform } from 'react-native';
+import DeviceInfo from 'react-native-device-info';
+
+export default function Device_info() {
+    // Using DeviceInfo
+    const [id,setId] = React.useState('')
+    const [battery,setBattery] = React.useState('')
+    const [carrierInfo,setCarrierInfo] = React.useState('')
+    
+    const deviceModel = DeviceInfo.getModel();
+    // const deviceId = DeviceInfo.getUniqueId();
+    const deviceId = DeviceInfo.getUniqueId();
+
+    DeviceInfo.getAndroidId().then((androidId) => {
+      // androidId here
+      setId(androidId);
+    });
+
+    DeviceInfo.getBatteryLevel().then((label) => {
+        setBattery(label)
+    });
+
+    DeviceInfo.getCarrier().then((carrier) => {
+        setCarrierInfo(carrier)
+    });
+    
+    return (
+    <View>
+      <Text>Device_info</Text>
+      <Text>{JSON.stringify(Platform)}</Text>
+      <Text>==========</Text>
+    </View>
+    )
+}
+
+```
+[**⬆ Back to Top**](#)
+
+
+<p id=''></p>
+
+### Push Notification
+```js
+
+```
+[**⬆ Back to Top**](#)
+
+
+<p id=''></p>
+
+### SQLite Database
+```js
+
+```
+[**⬆ Back to Top**](#)
+
+
+<p id=''></p>
+
+### Google Admob
+```js
+
+```
+[**⬆ Back to Top**](#)
+
+
+
 
 ---
 
