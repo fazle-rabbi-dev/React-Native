@@ -113,13 +113,13 @@ You Should Learn The Following Technology Before Jump In React-Native.Else you c
 <summary>Click To Expand </summary>
 
 * [Apply Global Style](#globalStyle)
-* [Play Video](#playvid)
-* [Play Audio](#playaud)
-* [Get Device Info](#device)
+* [Play Audio](#playAudio)
+* [Play Video](#playVideo)
+* [Get Device Info](#getDeviceInfo)
 * [Get NetInfo](https://github.com/react-native-netinfo/react-native-netinfo)
-* [Push Notification](#notification)
 * [Sqlite Database](#sqlite)
 * [Google Admob Ads](#ads)
+* [Push Notification](#pushNotification)
 
 ---
 
@@ -578,6 +578,40 @@ text: {
     fontSize: 20,
  },
 ```
+* **FOR APPLY FONTS IN GLOBALLY:**
+    * Import and load all fonts in *app.js*
+    * And use in entire application
+    ```js
+    import React, { useState, useEffect } from 'react';
+    import { Text, View, StyleSheet } from 'react-native';
+    import AppLoading from 'expo-app-loading';
+    import {
+      useFonts,
+      Inter_900Black,
+    } from '@expo-google-fonts/inter';
+    import {
+      BalooBhai2_700Bold,
+    } from '@expo-google-fonts/baloo-bhai-2';
+    import Home from './components/Home.js';
+    
+    
+    export default () => {
+      let [fontsLoaded] = useFonts({
+        Inter_900Black,
+        BalooBhai2_700Bold
+      });
+    
+      if (!fontsLoaded) {
+        return null;
+      } else {
+        return (
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                <Home/> 
+            </View>
+        );
+      }
+    };    
+    ```
 
 ### 📝 Icons:
 * ***expo install @expo/vector-icons***
@@ -1188,7 +1222,33 @@ const getClipboardText = async (link) => {
 <p id='globalStyle'></p>
 
 ### Apply Global Style
+* **style.js**
 ```js
+import { StyleSheet } from 'react-native';
+
+const styles = StyleSheet.create({
+   red:{
+      color:'red',
+      fontSize: 30
+   }
+});
+
+export default styles;
+```
+* **Test.js**
+```js
+import { View, Text } from 'react-native'
+import React from 'react'
+import styles from './style.js'
+
+export default function Test() {
+  return (
+    <View>
+      <Text style={{fontFamily:"Inter_900Black"}}>Test</Text>
+      <Text style={styles.red}>Im Red Text</Text>
+    </View>
+  )
+}
 
 ```
 [**⬆ Back to Top**](#)
