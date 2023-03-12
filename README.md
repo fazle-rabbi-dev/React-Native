@@ -41,9 +41,17 @@ You Should Learn The Following Technology Before Jump In React-Native.Else you c
 
 ## `Learning Resources`
    
+|Youtube|Websites|
+|-------|--------|
+| [Thapa Technical](https://youtube.com/playlist?list=PLwGdqUZWnOp354xMD8u0hxX-1qmCvfLiY) | [JavatPoint](https://www.javatpoint.com/react-native-tutorial) |
+| [Programming With Mash](https://youtube.com/playlist?list=PL8kfZyp--gEXs4YsSLtB3KqDtdOFHMjWZ) | [Official Docs](https://reactnative.dev/docs/getting-started) |
+| [Pradip Debnath](https://youtube.com/playlist?list=PLQWFhX-gwJblNXe9Fj0WomT0aWKqoDQ-h) | [React Navigation](https://reactnavigation.org/) |
+| [Bug Ninja](https://youtube.com/playlist?list=PLO3Dk6jx9EISheYkFbI9Hd_AF9A99i0L-) ||
+| [MissCoding](https://youtube.com/playlist?list=PLzzljR-_nWVXKtQV4VSvM_pbRuEFD6QVK) ||
+
 </div>
 
-1. **Youtube Playlists:**
+<!--1. **Youtube Playlists:**
    * [Thapa Technical](https://youtube.com/playlist?list=PLwGdqUZWnOp354xMD8u0hxX-1qmCvfLiY)
    * [Programming With Mash](https://youtube.com/playlist?list=PL8kfZyp--gEXs4YsSLtB3KqDtdOFHMjWZ)
    * [Pradip Debnath](https://youtube.com/playlist?list=PLQWFhX-gwJblNXe9Fj0WomT0aWKqoDQ-h)
@@ -54,6 +62,7 @@ You Should Learn The Following Technology Before Jump In React-Native.Else you c
    * [JavatPoint](https://www.javatpoint.com/react-native-tutorial)
    * [Official Docs](https://reactnative.dev/docs/getting-started)
    * [React Navigation](https://reactnavigation.org/)
+-->
 
 ### ⚡Extra:
 * [Fonts Directory](https://directory.vercel.app/) `use custom fonts`
