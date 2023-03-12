@@ -521,6 +521,7 @@ export default Demo;
 <a id='Fonts'></a>
 
 ### 📝 Custom Fonts:
+* **For Google Fonts:**
 * ***expo install @expo-google-fonts/baloo-bhai-2***
 ```js
 // import {View,Text} from 'react-native';
@@ -548,6 +549,36 @@ const Demo = () => {
 
 export default Demo;
 ```
+* **For Downloaded Fonts:**
+```sh
+npm install expo-font
+```
+***App.js***
+```js
+import * as Font from 'expo-font'
+
+// Define load font function
+async function loadFonts() {
+  await Font.loadAsync({
+    'your-font-name': require('./path-to-your-font-file.ttf'),
+  });
+}
+
+// Load font when component mounting
+useEffect(() => {
+    loadFonts()
+},[]);
+
+// Component
+<Text style={styles.text}>Hello</Text>
+
+// Style
+text: {
+    fontFamily: 'your-font-name',
+    fontSize: 20,
+ },
+```
+
 ### 📝 Icons:
 * ***expo install @expo/vector-icons***
 ```js
@@ -1154,34 +1185,117 @@ const getClipboardText = async (link) => {
 ---
 
 <h1 align='center'>Advanced</h1>
-<p id=''></p>
+<p id='globalStyle'></p>
 
-### Apple Global Style
+### Apply Global Style
 ```js
 
 ```
 [**⬆ Back to Top**](#)
 
 
-<p id=''></p>
+<p id='playAudio'></p>
+
+### Play Audio
+* ***npm i expo-av***
+```js
+import React, { useState } from 'react';
+import { Button } from 'react-native';
+import { Audio } from 'expo-av';
+
+export default function AudioPlayer() {
+    const [sound, setSound] = useState(null);
+
+    // Play Sound
+    async function playSound() {
+    const soundObject = new Audio.Sound();
+    try {
+      await soundObject.loadAsync(require('../../assets/300_weird.mp3'));
+      await soundObject.playAsync();
+      setSound(soundObject);
+    } catch (error) {
+      console.log(error);
+    }
+    }
+
+    // Pause Sound
+    async function pauseSound() {
+        if (sound) {
+          await sound.pauseAsync();
+        }
+      }    
+      
+    // Resume Sound
+    async function resumeSound() {
+        if (sound) {
+          await sound.playAsync();
+        }
+     }    
+    
+    // Stop Sound
+    async function stopSound() {
+        if (sound) {
+          await sound.stopAsync();
+          await sound.unloadAsync();
+          setSound(null);
+        }
+     }    
+    
+  return (
+    <>
+        <Button title="Play Audio" onPress={playSound} />
+        <Button title="Pause Audio" onPress={pauseSound} />
+        <Button title="Stop Audio" onPress={stopSound} />
+    </>
+  );
+}
+```
+[**⬆ Back to Top**](#)
+
+
+<p id='playVideo'></p>
 
 ### Play Video
 ```js
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import { Video } from 'expo-av';
 
+export default function VideoPlayer() {
+  const videoUri = 'http://23.20.142.224/video/CTE_OCTUBRE_V2.mp4'; // replace with your video URL
+
+  return (
+    <View style={styles.container}>
+      <Video
+        source={{ uri: videoUri }}
+        rate={1.0}
+        volume={1.0}
+        isMuted={false}
+        resizeMode="cover"
+        shouldPlay
+        useNativeControls
+        style={styles.videoPlayer}
+      />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    // flex: 1,
+    // alignItems: 'center',
+    // justifyContent: 'center',
+  },
+  videoPlayer: {
+    width: '100%',
+    height: 300,
+  },
+});
 ```
 [**⬆ Back to Top**](#)
 
 
-<p id=''></p>
-
-### Play Audio
-```js
-
-```
-[**⬆ Back to Top**](#)
-
-
-<p id=''></p>
+<p id='getDeviceInfo'></p>
 
 ### Get Device Info
 * ***For use any third party pure react-native library Ex:react-native-google-ads,react-native-device-info we need to build a dev client apk.For this we need to install eas cli by using*** `npm i -g eas-cli` ***and use the bellow command:***
