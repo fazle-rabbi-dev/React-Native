@@ -63,6 +63,9 @@ You Should Learn The Following Technology Before Jump In React-Native.Else you c
 ### ⏳How Many Does It Takes To Learn?
  After learning HTML CSS JAVASCRIPT and REACT.Js it took me just ***9 days*** to learn basic to intermidiate topics.
 
+
+**🚨NOTE:** *This React-Native note are based on Expo-Cli*
+
 ---
 
 <h1 align='center'>Table Of Contents</h1>
@@ -117,8 +120,8 @@ You Should Learn The Following Technology Before Jump In React-Native.Else you c
 * [Play Video](#playVideo)
 * [Get Device Info](#getDeviceInfo)
 * [Get NetInfo](https://github.com/react-native-netinfo/react-native-netinfo)
-* [Sqlite Database](#sqlite)
-* [Google Admob Ads](#ads)
+* [Sqlite Database](#SQLite)
+* [Google Admob Ads](#Admob)
 * [Push Notification](#pushNotification)
 
 ---
@@ -151,18 +154,7 @@ You Should Learn The Following Technology Before Jump In React-Native.Else you c
 
 </details>
 
-### 🚀 ***Generate Apk File:***
-* `Create Account In Expo`
-* `$ expo login`
-* `$ expo build:android`
-* **⌛ It takes about 20-30 Minutes**
-* [!] Apk size will be 70 Mb !
-* #### BEST WAY:
-* `$eas build:configure` **Initialization for eas build**
-* `$ eas build -p android --profile preview` **generate apk file**
-* `$ eas build -p android --profile development` **generate dev client apk for run app**
-* `$ eas build -p android --profile production` **generate file for (play/app) store**
-* **⌛ It takes about 8-10 Minutes**
+### [✅Generate (apk/ipa) file for install in Real-Device](#buildApps)
 
 ---
 
@@ -174,6 +166,9 @@ You Should Learn The Following Technology Before Jump In React-Native.Else you c
 ```bash
 $ npm i expo
 $ expo init my-app
+
+# Or:
+npx create-expo-app my-app
 ```
 
 <a id='setup'></a>
@@ -950,15 +945,6 @@ AsyncStorage.clear()
 
 [**⬆ Back to Top**](#Fundamentals)
 
-<a id='SQLite'></a>
-
-### 📝 SQLite Database:
-```js
-
-```
-
-[**⬆ Back to Top**](#Fundamentals)
-
 <a id='ActivityIndicator'></a>
 
 ### 📝 Activity Indicator:
@@ -1403,6 +1389,110 @@ export default function Device_info() {
 ```
 [**⬆ Back to Top**](#)
 
+<p id='SQLite'></p>
+
+### SQLite Database
+* **npm install expo-sqlite**
+```js
+import * as SQLite from 'expo-sqlite'
+
+// Outside of the functiin
+const db = SQLite.openDatabase('TodoApp.db');
+
+export default function SqLite(){
+    useEffect(() => {
+      createTable()
+    },[]);
+    
+    
+    // Create Table
+    function createTable(){
+      db.transaction((tx)=>{
+         tx.executeSql(
+                'Create Table todos (id int auto increment primary key,title text)'
+             ) 
+      });
+    }
+    
+    
+    // Create Data
+    db.transaction(tx => {
+      tx.executeSql(
+        'INSERT INTO users (name, email) VALUES (?, ?);',
+        ['John Doe', 'johndoe@example.com']
+      );
+    });    
+    
+    
+    // Read Data
+    db.transaction(tx => {
+      tx.executeSql(
+        'SELECT * FROM users;',
+        [],
+        (_, { rows }) => console.log(rows)
+      );
+    });    
+    
+    
+    // Update Data
+    function updateUserData(id, name, email) {
+      db.transaction(tx => {
+        tx.executeSql(
+          'UPDATE users SET name=?, email=? WHERE id=?;',
+          [name, email, id],
+          (_, { rowsAffected }) => {
+            if (rowsAffected > 0) {
+              console.log(`User with id ${id} updated successfully.`);
+            } else {
+              console.log(`User with id ${id} not found.`);
+            }
+          }
+        );
+      });
+    }    
+    
+    // Delete Data
+    function deleteUserData(id) {
+      db.transaction(tx => {
+        tx.executeSql(
+          'DELETE FROM users WHERE id=?;',
+          [id],
+          (_, { rowsAffected }) => {
+            if (rowsAffected > 0) {
+              console.log(`User with id ${id} deleted successfully.`);
+            } else {
+              console.log(`User with id ${id} not found.`);
+            }
+          }
+        );
+      });
+    }
+    
+    // return ...
+    
+}
+
+```
+[**⬆ Back to Top**](#)
+
+
+<p id='Admob'></p>
+
+### Google Admob
+1. `npm i react-native-google-mobile-ads`
+2. `npm i -g eas-cli`
+3. `npm i expo-dev-client`
+4. **Now Build A development-client apk:**
+    * By Using Bellow Commands:
+    ```sh
+    $ eas build:configure
+    $ eas build -p android --profile development
+    ```
+    * `Download and install it and use this apk for view output of our app insted of` **Expo Go** 
+    * Now start app by using `expo start --dev-client` insted of **expo start**
+    * View this <a href="https://github.com/fh-rabbi/React-Native-Google-Ads">Sample</a>
+
+[**⬆ Back to Top**](#)
 
 <p id=''></p>
 
@@ -1411,25 +1501,6 @@ export default function Device_info() {
 
 ```
 [**⬆ Back to Top**](#)
-
-
-<p id=''></p>
-
-### SQLite Database
-```js
-
-```
-[**⬆ Back to Top**](#)
-
-
-<p id=''></p>
-
-### Google Admob
-```js
-
-```
-[**⬆ Back to Top**](#)
-
 
 
 
@@ -2359,3 +2430,24 @@ navigation.navigate('User',{id:100,name:'Smith'})
 ```
 
 [**⬆ Back to Top**](#Navigation)
+
+
+<p id="buildApps"></p>
+
+### Generate (apk/ipa):
+* 🚀 ***Generate Apk File:***
+    * `Create Account In Expo`
+    * `$ expo login`
+    * `$ expo build:android`
+    * **⌛ It takes about 20-30 Minutes**
+    * [!] Apk size will be 70 Mb !
+    * #### BEST WAY:
+    * `$eas build:configure` **Initialization for eas build**
+    * `$ eas build -p android --profile preview` **generate apk file**
+    * `$ eas build -p android --profile development` **generate dev client apk for run app**
+    * `$ eas build -p android --profile production` **generate file for (play/app) store**
+    * **⌛ It takes about 8-10 Minutes**
+
+* 🚀 ***Generate Ipa File:***
+    * `Comming Soon ..`
+
