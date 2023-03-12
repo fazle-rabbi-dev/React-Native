@@ -131,17 +131,16 @@ You Should Learn The Following Technology Before Jump In React-Native.Else you c
 * [Get NetInfo](https://github.com/react-native-netinfo/react-native-netinfo)
 * [Sqlite Database](#SQLite)
 * [Google Admob Ads](#Admob)
-* [Push Notification](#pushNotification)
+* [Push Notification With Firebase](#pushNotification)
 
 ---
 
 * #### `NOT AVILABLE`
-* [Gradient Generator](#grad)
+* [Gradient Background](#grad)
 * [Document Picker](#docs)
 * [Bio Metrics](#bio)
 * [Access Storage,Camera,Call logs etc](#access)
-* [Use Firebase](#firebase)
-* [Eas CLI](#eas)
+* [Firebase With React-Native](#firebase)
 * [Google Maps](#maps)
 
 </details>
@@ -163,7 +162,7 @@ You Should Learn The Following Technology Before Jump In React-Native.Else you c
 
 </details>
 
-### [✅Generate (apk/ipa) file for install in Real-Device](#buildApps)
+### [✅Generate (apk/ipa) file for install app in Real-Device](#buildApps)
 
 ---
 
