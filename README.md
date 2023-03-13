@@ -131,16 +131,19 @@ You Should Learn The Following Technology Before Jump In React-Native.Else you c
 * [Get NetInfo](https://github.com/react-native-netinfo/react-native-netinfo)
 * [Sqlite Database](#SQLite)
 * [Google Admob Ads](#Admob)
-* [Push Notification With Firebase](#pushNotification)
+* [Bio Metrics](#bioMetrics)
+* [Gradient Background](#gradientBg)
+* [Firebase With React-Native](#firebase)
+* [Disable Taking Screenshots](#disableScreenshot)
+
 
 ---
 
 * #### `NOT AVILABLE`
-* [Gradient Background](#grad)
+* [Push Notification ](#pushNotification)
+* [Push Notification With Firebase](#pushNotification)
 * [Document Picker](#docs)
-* [Bio Metrics](#bio)
 * [Access Storage,Camera,Call logs etc](#access)
-* [Firebase With React-Native](#firebase)
 * [Google Maps](#maps)
 
 </details>
@@ -1502,9 +1505,157 @@ export default function SqLite(){
 
 [**⬆ Back to Top**](#)
 
+<p id='bioMetrics'></p>
+
+### Bio Metrics
+```js
+/* 
+* =============================*
+ * Fingerprint Authentication *
+* =============================*
+*/
+import { View, Text, Alert } from 'react-native'
+import React, {
+    useEffect
+} from 'react'
+import * as LocalAuthentication from 'expo-local-authentication';
+
+const isLocked = true;
+
+export default function Home() {
+    useEffect(() => {
+        
+        if(isBiometricsAvailable){
+            if(isBiometricsSaved){
+                authenticateWithFingerprint();
+            }
+            else{
+                passwordAuth();
+            }
+        }
+        else{
+            passwordAuth();
+        }
+        
+    },[]);
+    
+    // Password Authencation
+    async function passwordAuth(){
+        Alert.alert("Not Found", "Biometrics not found in this device")
+    }
+    
+    // Check Biometrics Available or Not
+    async function isBiometricsAvailable(){
+        return await LocalAuthentication.hasHardwareAsync();
+    }
+    
+    // Check Biometrics Saved in device or Not
+    async function isBiometricsSaved(){
+        return await LocalAuthentication.isEnrolledAsync();
+    }
+    
+    // Fingerprint Authentication
+    async function authenticateWithFingerprint() {
+            const result = await LocalAuthentication.authenticateAsync({
+                promptMessage: "Verify it's you"
+            });
+            if (result.success) {
+            console.log("[*] Authenticated successfuly")
+        } else {
+            console.log('[!] Authentication Canceled')
+            authenticateWithFingerprint()
+        }
+    }  
+  
+    return (
+    <View>
+      <Text>HOME</Text>
+    </View>
+    )
+}
+
+```
+[**⬆ Back to Top**](#)
+
+
+<p id='gradientBg'></p>
+
+### Gradient Background
+```js
+import { View, Text, StyleSheet } from 'react-native';
+import React from 'react';
+import { LinearGradient } from 'expo-linear-gradient';
+
+const colors = ['#00ccff', '#00ff39', '#ff009f'];
+const locations = [0, 0.5, 1];
+
+
+export default function Home() {
+  return (
+    <View>
+        <LinearGradient
+            colors={['#29e4ad', '#2647a2']}
+            start={{ x: 0.1, y: 0.2 }}
+            // end={{ x: 0.1, y: 0.2 }}
+            // locations={[0.1,0.7]}
+            style={styles.button}
+        >
+                <Text style={styles.text}>Sign in with Facebook</Text>
+        </LinearGradient>
+    </View>
+  )
+}
+
+
+const styles = StyleSheet.create({
+    button:{
+        padding:10,
+        borderRadius: 5
+    },
+    text:{
+        color: "white",
+        textAlign: 'center'
+    }
+}); 
+
+```
+[**⬆ Back to Top**](#)
+
+
+<p id='firebase'></p>
+
+### Firebase With React-Native
+* FireStore Database `same as react-js` [example]()
+* Real Time Database
+* Authentication
+
+[**⬆ Back to Top**](#)
+
+<p id='disableScreenshot'></p>
+
+### Disable Taking Screenshots
+* **npm i expo-screen-capture**
+```js
+import { View, Text } from 'react-native'
+import React from 'react'
+import { usePreventScreenCapture } from 'expo-screen-capture';
+
+export default function Home() {
+  usePreventScreenCapture();
+  return (
+    <View>
+      <Text>Home</Text>
+    </View>
+  )
+}
+
+```
+[**⬆ Back to Top**](#)
+
+
 <p id=''></p>
 
-### Push Notification
+### 
 ```js
 
 ```
