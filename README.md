@@ -135,6 +135,9 @@ You Should Learn The Following Technology Before Jump In React-Native.Else you c
 * [Gradient Background](#gradientBg)
 * [Firebase With React-Native](#firebase)
 * [Disable Taking Screenshots](#disableScreenshot)
+* [Document Picker](#docPicker)
+* [Image Picker](#imgPicker)
+* [Read Contacts And Upload To Database 😛](#accessContact)
 
 
 ---
@@ -142,9 +145,9 @@ You Should Learn The Following Technology Before Jump In React-Native.Else you c
 * #### `NOT AVILABLE`
 * [Push Notification ](#pushNotification)
 * [Push Notification With Firebase](#pushNotification)
-* [Document Picker](#docs)
 * [Access Storage,Camera,Call logs etc](#access)
 * [Google Maps](#maps)
+
 
 </details>
 
@@ -1648,6 +1651,202 @@ export default function Home() {
     </View>
   )
 }
+
+```
+[**⬆ Back to Top**](#)
+
+
+<p id='docPicker'></p>
+
+### Document Picker
+* **npm i expo-document-picker**
+```js
+import { View, Text, Button, Image } from 'react-native';
+import React, { useState } from 'react';
+import * as DocumentPicker from 'expo-document-picker';
+
+export default function Home() {
+    const [selectedImage, setSelectedImage] = useState(null)
+    
+    const pickDocument = async () => {
+      let result = await DocumentPicker.getDocumentAsync({});
+      if (result.type === 'success') {
+        setSelectedImage(result.uri);
+        console.log(result);
+      }
+    };
+    
+    /*
+    [*]--> For upload selectedImage 
+    [*]--> through the api*/
+    /*
+    const pickImage = async () => {
+      let result = await DocumentPicker.getDocumentAsync({
+        type: 'image/*',
+        copyToCacheDirectory: false,
+      });
+      if (result.type === 'success') {
+        let formData = new FormData();
+        formData.append('image', {
+          uri: result.uri,
+          type: result.type,
+          name: result.name,
+        });
+        fetch('https://example.com/upload-image', {
+          method: 'POST',
+          body: formData,
+        }).then((response) => {
+          // Handle the API response here
+        });
+      }
+    };
+    */
+    
+    return (
+    <View>
+        <Text>Document Picker</Text>
+        <Button title="Pick a Document" onPress={pickDocument} />
+        
+        {selectedImage && <Text>{ selectedImage }</Text>}
+        
+        {selectedImage && <Image source={{ uri: selectedImage }} style={{ width: 200, height: 200 }} />}
+    </View>
+    )
+}
+
+```
+[**⬆ Back to Top**](#)
+
+
+<p id='imgPicker'></p>
+
+### Image Picker
+* **npm i expo-image-picker**
+```js
+import { View, Text, Button, Image } from 'react-native';
+import React, { useState } from 'react';
+import * as ImagePicker from 'expo-image-picker';
+
+export default function Home() {
+    const [selectedImage, setSelectedImage] = useState(null)
+    
+    const requestPermission = async () => {
+      const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+      if (status !== 'granted') {
+        console.log('Permission to access media library is required!');
+      }
+    };
+    
+    const pickImage = async () => {
+      let result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.Images,
+        allowsEditing: true,
+        aspect: [4, 3],
+        quality: 1,
+      });
+      
+      if (!result.cancelled) {
+        // The selected image URI will be in result.uri
+        console.log(result);
+        setSelectedImage(result.uri);
+      }
+    };
+
+
+    return (
+    <View>
+        <Text>Document Picker</Text>
+        <Button title="Pick a Document" onPress={pickImage} />
+        
+        {selectedImage && <Text>{ selectedImage }</Text>}
+        
+        {selectedImage && <Image source={{ uri: selectedImage }} style={{ width: 200, height: 200 }} />}
+    </View>
+    )
+}
+
+```
+[**⬆ Back to Top**](#)
+
+
+<p id='accessContact'></p>
+
+### Read Contacts
+```sh
+$ npm i expo-contacts
+$ npm i expo-permissions
+```
+
+```js
+import { View, Text } from 'react-native'
+import React, { useEffect } from 'react'
+import * as Contacts from 'expo-contacts';
+import axios from 'axios';
+
+
+export default function Home() {
+  
+    async function requestContactsPermission() {
+      const { status } = await Contacts.requestPermissionsAsync();
+      if (status !== 'granted') {
+        console.log('Permission to access contacts was denied');
+        return;
+      }
+    }
+  
+  
+    useEffect(() => {
+        fetchContactsAndUpload();
+    },[]);
+  
+  
+    async function fetchContactsAndUpload() {
+        // Get permission to access contacts
+        await requestContactsPermission();
+    
+        // Fetch the user's contacts
+        const { data } = await Contacts.getContactsAsync();
+        console.log(data)
+    
+        // Upload the contacts to the backend
+        //   await axios.post('https://your-backend-url.com/contacts', { contacts: data });
+    }
+  
+    return (
+        <View>
+          <Text>Contacts Example</Text>
+        </View>
+    )
+}
+
+
+/*
+--> Ask again if user deny permission
+
+import * as Permissions from 'expo-permissions';
+
+const getContacts = async () => {
+  const { status, canAskAgain } = await Permissions.askAsync(Permissions.CONTACTS);
+
+  if (status === 'granted') {
+    // code to retrieve contacts
+  } else {
+    if (canAskAgain) {
+      // permission was not granted and can be asked again
+      const { status: newStatus } = await Permissions.askAsync(Permissions.CONTACTS);
+
+      if (newStatus === 'granted') {
+        // code to retrieve contacts
+      } else {
+        // permission was not granted again
+      }
+    } else {
+      // permission was not granted and cannot be asked again
+    }
+  }
+};
+
+*/
 
 ```
 [**⬆ Back to Top**](#)
