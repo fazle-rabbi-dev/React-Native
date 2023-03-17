@@ -81,10 +81,7 @@ You Should Learn The Following Technology Before Jump In React-Native.Else you c
 
 <a id='Fundamentals'></a>
 
-#### `🏷️ BASICS`
-#### `️🔍BASICS`
 #### `️⚡BASICS`
-#### `️💡BASICS`
 
 <details>
 <summary>Click To Expand </summary>
@@ -122,7 +119,7 @@ You Should Learn The Following Technology Before Jump In React-Native.Else you c
 
 <a id='Advanced'></a>
 
-#### `ADVANCED:`
+#### `️⚡ADVANCED`
 
 <details>
 <summary>Click To Expand </summary>
@@ -159,7 +156,7 @@ You Should Learn The Following Technology Before Jump In React-Native.Else you c
 
 <a id='Navigation'></a>
 
-#### `NAVIGATION:`
+#### `️⚡NAVIGATION`
 
 <details>
 <summary>Click To Expand </summary>
