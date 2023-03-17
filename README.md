@@ -134,8 +134,8 @@ You Should Learn The Following Technology Before Jump In React-Native.Else you c
 * [Bio Metrics](#bioMetrics)
 * [Gradient Background](#gradientBg)
 * **Firebase With React-Native**
-    * *Authentication*
-    * *FireStore Database* `same as react-js` [example]()
+    * Authentication
+    * FireStore Database `same as react-js` [example](https://github.com/fh-rabbi/web-development/blob/main/frontEnd/react/README.md#FirestoreDB)
     * [Realtime Database](#realtimeDb)
 * [Disable Taking Screenshots](#disableScreenshot)
 * [Document Picker](#docPicker)
@@ -145,7 +145,7 @@ You Should Learn The Following Technology Before Jump In React-Native.Else you c
 
 ---
 
-* #### `NOT AVILABLE`
+* #### `NOT AVAILABLE`
 * [Push Notification ](#pushNotification)
 * [Push Notification With Firebase](#pushNotification)
 * [Access Storage,Camera,Call logs etc](#access)
@@ -1637,7 +1637,7 @@ $ npm i firebase
 $ npm i react-firebase-hooks
 ```
 * **Make a new project in firebase and add a web-app then copy the configuration code and paste in** `firebase.js` **file:**
-```
+```js
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 
