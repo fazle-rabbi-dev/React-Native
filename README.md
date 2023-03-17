@@ -1254,7 +1254,7 @@ export default function Test() {
 }
 
 ```
-[**⬆ Back to Top**](#)
+[**⬆ Back to Top**](#Advanced)
 
 
 <p id='playAudio'></p>
@@ -1313,7 +1313,7 @@ export default function AudioPlayer() {
   );
 }
 ```
-[**⬆ Back to Top**](#)
+[**⬆ Back to Top**](#Advanced)
 
 
 <p id='playVideo'></p>
@@ -1355,7 +1355,7 @@ const styles = StyleSheet.create({
   },
 });
 ```
-[**⬆ Back to Top**](#)
+[**⬆ Back to Top**](#Advanced)
 
 
 <p id='getDeviceInfo'></p>
@@ -1404,7 +1404,7 @@ export default function Device_info() {
 }
 
 ```
-[**⬆ Back to Top**](#)
+[**⬆ Back to Top**](#Advanced)
 
 <p id='SQLite'></p>
 
@@ -1490,7 +1490,7 @@ export default function SqLite(){
 }
 
 ```
-[**⬆ Back to Top**](#)
+[**⬆ Back to Top**](#Advanced)
 
 
 <p id='Admob'></p>
@@ -1509,7 +1509,7 @@ export default function SqLite(){
     * Now start app by using `expo start --dev-client` insted of **expo start**
     * View this <a href="https://github.com/fh-rabbi/React-Native-Google-Ads">Sample</a>
 
-[**⬆ Back to Top**](#)
+[**⬆ Back to Top**](#Advanced)
 
 <p id='bioMetrics'></p>
 
@@ -1581,7 +1581,7 @@ export default function Home() {
 }
 
 ```
-[**⬆ Back to Top**](#)
+[**⬆ Back to Top**](#Advanced)
 
 
 <p id='gradientBg'></p>
@@ -1625,7 +1625,7 @@ const styles = StyleSheet.create({
 }); 
 
 ```
-[**⬆ Back to Top**](#)
+[**⬆ Back to Top**](#Advanced)
 
 
 <p id='realtimeDb'></p>
@@ -1717,7 +1717,7 @@ import {
     }
 ```
 
-[**⬆ Back to Top**](#)
+[**⬆ Back to Top**](#Advanced)
 
 <p id='disableScreenshot'></p>
 
@@ -1738,7 +1738,7 @@ export default function Home() {
 }
 
 ```
-[**⬆ Back to Top**](#)
+[**⬆ Back to Top**](#Advanced)
 
 
 <p id='docPicker'></p>
@@ -1800,7 +1800,7 @@ export default function Home() {
 }
 
 ```
-[**⬆ Back to Top**](#)
+[**⬆ Back to Top**](#Advanced)
 
 
 <p id='imgPicker'></p>
@@ -1851,7 +1851,7 @@ export default function Home() {
 }
 
 ```
-[**⬆ Back to Top**](#)
+[**⬆ Back to Top**](#Advanced)
 
 
 <p id='accessContact'></p>
@@ -1934,7 +1934,7 @@ const getContacts = async () => {
 */
 
 ```
-[**⬆ Back to Top**](#)
+[**⬆ Back to Top**](#Advanced)
 
 
 <p id=''></p>
