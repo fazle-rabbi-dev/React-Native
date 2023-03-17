@@ -65,9 +65,9 @@ You Should Learn The Following Technology Before Jump In React-Native.Else you c
 -->
 
 ### ⚡Extra:
-* [Fonts Directory](https://directory.vercel.app/) `use custom fonts`
-* [Icons](https://icons.expo.fyi/) `use icons`
-* [Expo](https://expo.dev/) `expo cli documentation`
+* [Fonts Directory](https://directory.vercel.app/) `for custom fonts`
+* [Icons](https://icons.expo.fyi/) `for icons`
+* [Expo](https://expo.dev/) `expo-cli documentation`
 
 ### ⏳How Many Does It Takes To Learn?
  After learning HTML CSS JAVASCRIPT and REACT.Js it took me just ***9 days*** to learn basic to intermidiate topics.
@@ -133,7 +133,10 @@ You Should Learn The Following Technology Before Jump In React-Native.Else you c
 * [Google Admob Ads](#Admob)
 * [Bio Metrics](#bioMetrics)
 * [Gradient Background](#gradientBg)
-* [Firebase With React-Native](#firebase)
+* **Firebase With React-Native**
+    * *Authentication*
+    * *FireStore Database* `same as react-js` [example]()
+    * [Realtime Database](#realtimeDb)
 * [Disable Taking Screenshots](#disableScreenshot)
 * [Document Picker](#docPicker)
 * [Image Picker](#imgPicker)
@@ -1625,12 +1628,94 @@ const styles = StyleSheet.create({
 [**⬆ Back to Top**](#)
 
 
-<p id='firebase'></p>
+<p id='realtimeDb'></p>
 
-### Firebase With React-Native
-* FireStore Database `same as react-js` [example]()
-* Real Time Database
-* Authentication
+### Realtime Database
+```sh
+# install two module
+$ npm i firebase
+$ npm i react-firebase-hooks
+```
+* **Make a new project in firebase and add a web-app then copy the configuration code and paste in** `firebase.js` **file:**
+```
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+
+const firebaseConfig = {
+  apiKey: 'removed for privacy,
+  authDomain: "expo-react-todo.firebaseapp.com",
+  databaseURL: 'removed for privacy',
+  projectId: "expo-react-todo",
+  storageBucket: "expo-react-todo.appspot.com",
+  messagingSenderId: 'removed for privacy',
+  appId: 'removed for privacy,
+  measurementId: "G-VTKDQXTSQK"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app); // get reference to the Firebase Realtime Database
+export default db;
+```
+* **App.js** `exmaple of todo app`
+```js
+import db from '../firebase';
+import {
+    set,ref,onValue,remove
+} from 'firebase/database';
+
+  // Create Data
+  function handleSubmit(){
+      if(title == '' || body == ''){
+          Alert.alert("Warning!",'Oops! please fill out all field');
+          return;
+      }
+      set(ref(db,'notesData/'+title),{
+          title,
+          body,
+      });
+      fetchData();
+  }
+  
+
+  // Read Data
+  const fetchData = async (nodePath) => {
+        const startCountRef = ref(db,'notesData');
+        onValue(startCountRef, (snapshot) => {
+            const data = snapshot.val();
+            const keys = Object.keys(data);
+            const notes = keys.map(key=>{
+                const newData = {
+                    id: key,
+                    ...data[key]
+                };
+                return newData;
+            });
+            console.log(notes)
+            setAllNotes(notes);
+        });
+    };
+    
+    
+    // Update note
+    async function updateData(id){
+      set(ref(db,'notesData/'+title),{
+          title,
+          body,
+      });
+    }
+  
+  
+    // Delete Note  
+    async function deleteData(id){
+      try {
+            await remove(ref(db,'notesData/'+id));
+            fetchData();
+            showAlert("Success",'Note deleted');
+      } catch (e) {
+            showAlert("Error",'Something went wrong');
+      }
+    }
+```
 
 [**⬆ Back to Top**](#)
 
