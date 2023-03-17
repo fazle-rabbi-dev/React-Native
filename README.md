@@ -1,8 +1,8 @@
 <!--<h1 align='center'><a href="#">REACT NATIVE</a></h1>-->
 
 <div align="center">
-    <!--<img width="100%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSySP3qt9JF7ktm-JP1MGGuxGfPKQR0g8Blfw&usqp=CAU" alt="" />-->
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSbTiHKXOAOA5nEjKRq8VbCad277GtNcZv1Q&usqp=CAU" alt="" />
+    <img width="100%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSySP3qt9JF7ktm-JP1MGGuxGfPKQR0g8Blfw&usqp=CAU" alt="" />
+    <!--<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSbTiHKXOAOA5nEjKRq8VbCad277GtNcZv1Q&usqp=CAU" alt="" />-->
 </div>
 
 <details>
