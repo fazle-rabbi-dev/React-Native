@@ -81,7 +81,10 @@ You Should Learn The Following Technology Before Jump In React-Native.Else you c
 
 <a id='Fundamentals'></a>
 
-#### `BASICS:`
+#### `🏷️ BASICS`
+#### `️🔍BASICS`
+#### `️⚡BASICS`
+#### `️💡BASICS`
 
 <details>
 <summary>Click To Expand </summary>
