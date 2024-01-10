@@ -7,21 +7,21 @@
 Hello there! This repository contains my awesome React-Native notes. In this note, I have written about all the topics of React-Native that I've learned. I believe this note is very helpful for React-Native developers.
 
 <details>
-<summary>All About Of React Native!</summary>
+<summary>All About Of React Native</summary>
 
-## What is React-Native
+## What is React-Native?
 
 React Native is a cross-platform mobile application development framework that Facebook created in 2015. React Native uses JavaScript as the underlying programming language, and it aims to help developers build native mobile apps for both Android and iOS devices with a single codebase.
 
-## What Is Cross-Platform Development
+## What Is Cross-Platform Development?
 
 Cross-platform development is the art of writing software that runs on different platforms; you write your codebase once and share it across different platforms. Cross-platform development provides you with a broad target audience since you have various options for running your codebase. For example, one app can be shared across both Android and iOS devices, resulting in a broader user base.
 
-## What does meaning native apps
+## What is the meaning of native apps?
 
 The term native app development refers to building a mobile app exclusively for a single platform. The app is built with programming languages and tools that are specific to a single platform. For example, you can develop a native Android app with Java or Kotlin and choose Swift and Objective-C for iOS apps.
 
-## What is hybrid app
+## What is the meaning of hybrid apps?
 
 Hybrid apps combine both web applications created for web browser and native applications that are designed for a particular platform and have to be installed on a device.
 
@@ -32,7 +32,7 @@ Hybrid apps combine both web applications created for web browser and native app
 
 <div align="center">
 
-## `PREREQUISITES`
+### Prerequisites
 
 To better understand React Native, consider learning the following technologies before diving in. This will help you grasp React Native more effectively.
 
@@ -45,7 +45,7 @@ To better understand React Native, consider learning the following technologies 
 
 <div align="center">
 
-## `Learning Resources`
+### Learning Resources 🎉
    
 |Youtube|Websites|
 |-------|--------|
@@ -72,7 +72,7 @@ To better understand React Native, consider learning the following technologies 
 * [Expo Router](https://docs.expo.dev/router/introduction/) `For navigating between screen with build in router`
 
 ### ⏳How Many Does It Takes To Learn?
-
+After learning HTML, CSS, JavaScript, and React.js, it took me just **9 days** to grasp basic to intermediate topics.
 
 > [!Note]
 > This React Native note is based on Expo CLI.
