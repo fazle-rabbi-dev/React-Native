@@ -32,7 +32,7 @@ Hybrid apps combine both web applications created for web browser and native app
 
 <div align="center">
 
-### Prerequisites
+## Prerequisites ✅
 
 To better understand React Native, consider learning the following technologies before diving in. This will help you grasp React Native more effectively.
 
@@ -45,7 +45,7 @@ To better understand React Native, consider learning the following technologies 
 
 <div align="center">
 
-### Learning Resources 🎉
+## Learning Resources 🎉
    
 |Youtube|Websites|
 |-------|--------|
