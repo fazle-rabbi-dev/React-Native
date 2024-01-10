@@ -1,26 +1,27 @@
-<!--<h1 align='center'><a href="#">REACT NATIVE</a></h1>-->
+<h1 align='center'>REACT-NATIVE</h1>
 
 <div align="center">
-    <img width="100%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSySP3qt9JF7ktm-JP1MGGuxGfPKQR0g8Blfw&usqp=CAU" alt="" />
-    <!--<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSbTiHKXOAOA5nEjKRq8VbCad277GtNcZv1Q&usqp=CAU" alt="" />-->
+    <img width="40%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" alt="React-Native" />
 </div>
+
+Hello there! This repository contains my awesome React-Native notes. In this note, I have written about all the topics of React-Native that I've learned. I believe this note is very helpful for React-Native developers.
 
 <details>
 <summary>All About Of React Native!</summary>
 
-### What is React-Native
+## What is React-Native
 
 React Native is a cross-platform mobile application development framework that Facebook created in 2015. React Native uses JavaScript as the underlying programming language, and it aims to help developers build native mobile apps for both Android and iOS devices with a single codebase.
 
-### What Is Cross-Platform Development
+## What Is Cross-Platform Development
 
 Cross-platform development is the art of writing software that runs on different platforms; you write your codebase once and share it across different platforms. Cross-platform development provides you with a broad target audience since you have various options for running your codebase. For example, one app can be shared across both Android and iOS devices, resulting in a broader user base.
 
-### What does meaning native apps
+## What does meaning native apps
 
 The term native app development refers to building a mobile app exclusively for a single platform. The app is built with programming languages and tools that are specific to a single platform. For example, you can develop a native Android app with Java or Kotlin and choose Swift and Objective-C for iOS apps.
 
-### What is hybrid app
+## What is hybrid app
 
 Hybrid apps combine both web applications created for web browser and native applications that are designed for a particular platform and have to be installed on a device.
 
@@ -31,9 +32,9 @@ Hybrid apps combine both web applications created for web browser and native app
 
 <div align="center">
 
-### `PREREQUISITES`
+## `PREREQUISITES`
 
-You Should Learn The Following Technology Before Jump In React-Native.Else you can't understand React-Native
+To better understand React Native, consider learning the following technologies before diving in. This will help you grasp React Native more effectively.
 
  ![](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
  ![](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
@@ -44,41 +45,37 @@ You Should Learn The Following Technology Before Jump In React-Native.Else you c
 
 <div align="center">
 
-### `Learning Resources`
+## `Learning Resources`
    
 |Youtube|Websites|
 |-------|--------|
-| [Thapa Technical](https://youtube.com/playlist?list=PLwGdqUZWnOp354xMD8u0hxX-1qmCvfLiY) | [JavatPoint](https://www.javatpoint.com/react-native-tutorial) |
-| [Programming With Mash](https://youtube.com/playlist?list=PL8kfZyp--gEXs4YsSLtB3KqDtdOFHMjWZ) | [Official Docs](https://reactnative.dev/docs/getting-started) |
-| [Pradip Debnath](https://youtube.com/playlist?list=PLQWFhX-gwJblNXe9Fj0WomT0aWKqoDQ-h) | [React Navigation](https://reactnavigation.org/) |
+| [Code Evolution (Recomended)](https://youtube.com/playlist?list=PLC3y8-rFHvwhiQJD1di4eRVN30WWCXkg1) | [JavatPoint](https://www.javatpoint.com/react-native-tutorial) |
+| [Thapa Technical](https://youtube.com/playlist?list=PLwGdqUZWnOp354xMD8u0hxX-1qmCvfLiY) | [Official Docs](https://reactnative.dev/docs/getting-started) |
+| [Programming With Mash](https://youtube.com/playlist?list=PL8kfZyp--gEXs4YsSLtB3KqDtdOFHMjWZ) ||
+| [Pradip Debnath](https://youtube.com/playlist?list=PLQWFhX-gwJblNXe9Fj0WomT0aWKqoDQ-h) ||
 | [Bug Ninja](https://youtube.com/playlist?list=PLO3Dk6jx9EISheYkFbI9Hd_AF9A99i0L-) ||
 | [MissCoding](https://youtube.com/playlist?list=PLzzljR-_nWVXKtQV4VSvM_pbRuEFD6QVK) ||
+| [Hitesh Choudhary](https://youtube.com/playlist?list=PLRAV69dS1uWSjBBJ-egNNOd4mdblt1P4c) ||
+| [Code Step By Step](https://youtube.com/playlist?list=PL8p2I9GklV468O2wk-n8Q1KmtMhnHHj4C) ||
+| [Javascript Mastery](https://youtu.be/mJ3bGvy0WAY) ||
+| [Programming With Mosh](https://youtu.be/0-S5a0eXPoc) ||
+| [Freecodecamp.org](https://youtu.be/obH0Po_RdWk) ||
 
 </div>
 
-<!--1. **Youtube Playlists:**
-   * [Thapa Technical](https://youtube.com/playlist?list=PLwGdqUZWnOp354xMD8u0hxX-1qmCvfLiY)
-   * [Programming With Mash](https://youtube.com/playlist?list=PL8kfZyp--gEXs4YsSLtB3KqDtdOFHMjWZ)
-   * [Pradip Debnath](https://youtube.com/playlist?list=PLQWFhX-gwJblNXe9Fj0WomT0aWKqoDQ-h)
-   * [Bug Ninja](https://youtube.com/playlist?list=PLO3Dk6jx9EISheYkFbI9Hd_AF9A99i0L-)
-   * [MissCoding](https://youtube.com/playlist?list=PLzzljR-_nWVXKtQV4VSvM_pbRuEFD6QVK)
-
-2. **Websites:**
-   * [JavatPoint](https://www.javatpoint.com/react-native-tutorial)
-   * [Official Docs](https://reactnative.dev/docs/getting-started)
-   * [React Navigation](https://reactnavigation.org/)
--->
 
 ### ⚡Extra:
 * [Fonts Directory](https://directory.vercel.app/) `for custom fonts`
 * [Icons](https://icons.expo.fyi/) `for icons`
 * [Expo](https://expo.dev/) `expo-cli documentation`
+* [React Navigation](https://reactnavigation.org/) `For navigating between screen`
+* [Expo Router](https://docs.expo.dev/router/introduction/) `For navigating between screen with build in router`
 
 ### ⏳How Many Does It Takes To Learn?
- After learning HTML CSS JAVASCRIPT and REACT.Js it took me just ***9 days*** to learn basic to intermidiate topics.
 
 
-**🚨NOTE:** *This React-Native note are based on Expo-Cli*
+> [!Note]
+> This React Native note is based on Expo CLI.
 
 ---
 
