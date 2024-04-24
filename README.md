@@ -50,26 +50,44 @@ To better understand React Native, consider learning the following technologies 
 |Youtube|Websites|
 |-------|--------|
 | [Code Evolution (Recomended)](https://youtube.com/playlist?list=PLC3y8-rFHvwhiQJD1di4eRVN30WWCXkg1) | [JavatPoint](https://www.javatpoint.com/react-native-tutorial) |
-| [Thapa Technical](https://youtube.com/playlist?list=PLwGdqUZWnOp354xMD8u0hxX-1qmCvfLiY) | [Official Docs](https://reactnative.dev/docs/getting-started) |
+| [Hitesh Choudhary](https://youtube.com/playlist?list=PLRAV69dS1uWSjBBJ-egNNOd4mdblt1P4c) || [Official Docs](https://reactnative.dev/docs/getting-started) |
+| [Simon Grimm](https://youtube.com/@galaxies_dev) ||
+| [notJust.dev](https://youtube.com/@notjustdev) ||
+| [CodeWithBeto](https://youtube.com/@codewithbeto) ||
 | [Programming With Mash](https://youtube.com/playlist?list=PL8kfZyp--gEXs4YsSLtB3KqDtdOFHMjWZ) ||
 | [Pradip Debnath](https://youtube.com/playlist?list=PLQWFhX-gwJblNXe9Fj0WomT0aWKqoDQ-h) ||
+| [Javascript Mastery](https://youtu.be/mJ3bGvy0WAY) ||
+| [Tube Guruji](https://youtube.com/@tubeguruji) ||
+| [CodeWithNomi](https://youtube.com/@codewithnomi) ||
+| [Sujan Anand](https://youtube.com/@sujananand6155) ||
+| [Thapa Technical](https://youtube.com/playlist?list=PLwGdqUZWnOp354xMD8u0hxX-1qmCvfLiY) ||
 | [Bug Ninja](https://youtube.com/playlist?list=PLO3Dk6jx9EISheYkFbI9Hd_AF9A99i0L-) ||
 | [MissCoding](https://youtube.com/playlist?list=PLzzljR-_nWVXKtQV4VSvM_pbRuEFD6QVK) ||
-| [Hitesh Choudhary](https://youtube.com/playlist?list=PLRAV69dS1uWSjBBJ-egNNOd4mdblt1P4c) ||
 | [Code Step By Step](https://youtube.com/playlist?list=PL8p2I9GklV468O2wk-n8Q1KmtMhnHHj4C) ||
-| [Javascript Mastery](https://youtu.be/mJ3bGvy0WAY) ||
 | [Programming With Mosh](https://youtu.be/0-S5a0eXPoc) ||
 | [Freecodecamp.org](https://youtu.be/obH0Po_RdWk) ||
 
 </div>
 
 
-### ⚡Extra:
+### ⚡ Other Resources:
 * [Fonts Directory](https://directory.vercel.app/) `for custom fonts`
-* [Icons](https://icons.expo.fyi/) `for icons`
+* [Expo Vector Icons](https://icons.expo.fyi/) `for icons`
+* [React-native-vector-icons](https://oblador.github.io/react-native-vector-icons/) `for icons`
 * [Expo](https://expo.dev/) `expo-cli documentation`
-* [React Navigation](https://reactnavigation.org/) `For navigating between screen`
 * [Expo Router](https://docs.expo.dev/router/introduction/) `For navigating between screen with build in router`
+* [React Navigation](https://reactnavigation.org/) `For navigating between screen`
+* [Google Ads In React-Native](https://docs.page/invertase/react-native-google-mobile-ads)
+* [Animation](https://docs.swmansion.com/react-native-reanimated/)
+* [Gesture](https://docs.swmansion.com/react-native-gesture-handler/docs/)
+* [NativeWind](https://www.nativewind.dev/) `Use TailwindCSS In React-Native`
+* [Carousal](react-native-snap-carousel) `Implement Slider`
+
+---
+# 📔 NOTE:
+- `We can use packages that are not directly supported on Expo by creating a development build.`
+
+---
 
 ### ⏳How Many Does It Takes To Learn?
 After learning HTML, CSS, JavaScript, and React.js, it took me just **9 days** to grasp basic to intermediate topics.
@@ -97,6 +115,7 @@ After learning HTML, CSS, JavaScript, and React.js, it took me just **9 days** t
 * `List` >> ***Like React.js***
 * [FlatList](#FlatList)
 * [Section List](#Section)
+* [SafeAreaView & StatusBar](#SafeAreaView)
 * [ScrollView](#ScrollView)
 * [Refresh Control](#Refresh)
 * [Image & ImageBackground](#Image)
@@ -181,7 +200,7 @@ After learning HTML, CSS, JavaScript, and React.js, it took me just **9 days** t
 
 <a id='Setup'></a>
 
-### 📝Setup React Native App:
+### 📝 Setup React Native App:
 ```bash
 $ npm i expo
 $ expo init my-app
@@ -425,6 +444,27 @@ export default function Demo(){
 
 [**⬆ Back to Top**](#Fundamentals)
 
+<a id='SafeAreaView'></a>
+
+### 📝 SafeAreaView & StatusBar:
+```js
+import { SafeAreaView } from "react-native-safe-area-context";
+import { StatusBar } from "expo-status-bar";
+
+const Demo = () => {
+   return(
+      <SafeAreaView>
+        
+        <StatusBar backgroundColor="#161622" style="light" />
+      </SafeAreaView>
+   );
+};
+
+export default Demo;
+```
+
+[**⬆ Back to Top**](#Fundamentals)
+
 <a id='ScrollView'></a>
 
 ### 📝 ScrollView:
@@ -626,6 +666,61 @@ text: {
       }
     };    
     ```
+
+* **Another Way**
+  ```js
+  import { useEffect } from "react";
+  import { View, Text } from "react-native";
+  import { SplashScreen, Stack } from "expo-router";
+  import { useFonts } from "expo-font";
+  import { GlobalProvider } from "../context/GlobalProvider.jsx";
+  import { SafeAreaView } from "react-native-safe-area-context";
+  import { StatusBar } from "expo-status-bar";
+  
+  // Prevent the splash screen from auto-hiding before asset loading is complete.
+  SplashScreen.preventAutoHideAsync();
+  
+  const RootLayout = () => {
+    const [fontsLoaded, error] = useFonts({
+      "Poppins-Black": require("../assets/fonts/Poppins-Black.ttf"),
+      "Poppins-Bold": require("../assets/fonts/Poppins-Bold.ttf"),
+      "Poppins-ExtraBold": require("../assets/fonts/Poppins-ExtraBold.ttf"),
+      "Poppins-ExtraLight": require("../assets/fonts/Poppins-ExtraLight.ttf"),
+      "Poppins-Light": require("../assets/fonts/Poppins-Light.ttf"),
+      "Poppins-Medium": require("../assets/fonts/Poppins-Medium.ttf"),
+      "Poppins-Regular": require("../assets/fonts/Poppins-Regular.ttf"),
+      "Poppins-SemiBold": require("../assets/fonts/Poppins-SemiBold.ttf"),
+      "Poppins-Thin": require("../assets/fonts/Poppins-Thin.ttf")
+    });
+  
+    useEffect(() => {
+      if (error) throw error;
+  
+      if (fontsLoaded) {
+        SplashScreen.hideAsync();
+      }
+    }, [fontsLoaded, error]);
+  
+    if (!fontsLoaded) {
+      return null;
+    }
+  
+    return (
+      <GlobalProvider>
+        <Stack>
+          <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="index" options={{ headerShown: false }} />
+          <Stack.Screen name="search/[query]" options={{ headerShown: false }} />
+        </Stack>
+      </GlobalProvider>
+    );
+  };
+  
+  export default RootLayout;
+  ```
+
+[**⬆ Back to Top**](#Fundamentals)
 
 ### 📝 Icons:
 * ***expo install @expo/vector-icons***
