@@ -7,7 +7,7 @@
 Hello there! This repository contains my awesome React-Native notes. In this note, I have written about all the topics of React-Native that I've learned. I believe this note is very helpful for React-Native developers.
 
 <details>
-<summary>All About Of React Native</summary>
+<summary><b><i>All About Of React Native</i></b></summary>
 
 ## What is React-Native?
 
@@ -45,47 +45,13 @@ To better understand React Native, consider learning the following technologies 
 
 <div align="center">
 
-## Learning Resources 🎉
-   
-|Youtube|Websites|
-|-------|--------|
-| [Code Evolution (Recomended)](https://youtube.com/playlist?list=PLC3y8-rFHvwhiQJD1di4eRVN30WWCXkg1) | [JavatPoint](https://www.javatpoint.com/react-native-tutorial) |
-| [Hitesh Choudhary](https://youtube.com/playlist?list=PLRAV69dS1uWSjBBJ-egNNOd4mdblt1P4c) || [Official Docs](https://reactnative.dev/docs/getting-started) |
-| [Simon Grimm](https://youtube.com/@galaxies_dev) ||
-| [notJust.dev](https://youtube.com/@notjustdev) ||
-| [CodeWithBeto](https://youtube.com/@codewithbeto) ||
-| [Programming With Mash](https://youtube.com/playlist?list=PL8kfZyp--gEXs4YsSLtB3KqDtdOFHMjWZ) ||
-| [Pradip Debnath](https://youtube.com/playlist?list=PLQWFhX-gwJblNXe9Fj0WomT0aWKqoDQ-h) ||
-| [Javascript Mastery](https://youtu.be/mJ3bGvy0WAY) ||
-| [Tube Guruji](https://youtube.com/@tubeguruji) ||
-| [CodeWithNomi](https://youtube.com/@codewithnomi) ||
-| [Sujan Anand](https://youtube.com/@sujananand6155) ||
-| [Thapa Technical](https://youtube.com/playlist?list=PLwGdqUZWnOp354xMD8u0hxX-1qmCvfLiY) ||
-| [Bug Ninja](https://youtube.com/playlist?list=PLO3Dk6jx9EISheYkFbI9Hd_AF9A99i0L-) ||
-| [MissCoding](https://youtube.com/playlist?list=PLzzljR-_nWVXKtQV4VSvM_pbRuEFD6QVK) ||
-| [Code Step By Step](https://youtube.com/playlist?list=PL8p2I9GklV468O2wk-n8Q1KmtMhnHHj4C) ||
-| [Programming With Mosh](https://youtu.be/0-S5a0eXPoc) ||
-| [Freecodecamp.org](https://youtu.be/obH0Po_RdWk) ||
+## [Learning Resources 🎉](/resources/README.md)
 
 </div>
 
-
-### ⚡ Other Resources:
-* [Fonts Directory](https://directory.vercel.app/) `for custom fonts`
-* [Expo Vector Icons](https://icons.expo.fyi/) `for icons`
-* [React-native-vector-icons](https://oblador.github.io/react-native-vector-icons/) `for icons`
-* [Expo](https://expo.dev/) `expo-cli documentation`
-* [Expo Router](https://docs.expo.dev/router/introduction/) `For navigating between screen with build in router`
-* [React Navigation](https://reactnavigation.org/) `For navigating between screen`
-* [Google Ads In React-Native](https://docs.page/invertase/react-native-google-mobile-ads)
-* [Animation](https://docs.swmansion.com/react-native-reanimated/)
-* [Gesture](https://docs.swmansion.com/react-native-gesture-handler/docs/)
-* [NativeWind](https://www.nativewind.dev/) `Use TailwindCSS In React-Native`
-* [Carousal](react-native-snap-carousel) `Implement Slider`
-
 ---
 # 📔 NOTE:
-- `We can use packages that are not directly supported on Expo by creating a development build.`
+- `We can use packages that are not directly supported on Expo by creating a` [Development build.](https://docs.expo.dev/develop/development-builds/introduction/)
 
 ---
 
@@ -107,6 +73,7 @@ After learning HTML, CSS, JavaScript, and React.js, it took me just **9 days** t
 <summary>Click To Expand </summary>
 
 * [Setup React Native App](#Setup)
+* [Setup Absolute Path Resolver](#AbsolutePath)
 * [View,Text](#View)
 * [Styling Components](#Styling)
 * [Buttons](#Button)
@@ -206,11 +173,70 @@ $ npm i expo
 $ expo init my-app
 
 # Or:
-npx create-expo-app my-app
+npx create-expo-app@latest my-app
 ```
 
 <a id='setup'></a>
 [**⬆ Back to Top**](#Fundamentals)
+
+
+<a id='AbsolutePath'></a>
+
+### 📝 Setup Absolute Path Resolver:
+1. `$ npm i npm install --save-dev babel-plugin-module-resolver`
+2. Create a **jsconfig.json** file in the root of your project:
+  ```json
+  {
+    "compilerOptions": {
+      "baseUrl": ".",
+      "paths": {
+        "src/*": ["./src/*"],
+        "assets/*": ["./src/assets/*"],
+        "components/*": ["./src/components/*"],
+        "constants/*": ["./src/constants/*"],
+        "helpers/*": ["./src/helpers/*"],
+        "hooks/*": ["./src/hooks/*"],
+        "navigation/*": ["./src/navigation/*"],
+        "redux/*": ["./src/redux/*"],
+        "screens/*": ["./src/screens/*"],
+        "theme/*": ["./src/theme/*"],
+        "utils/*": ["./src/utils/*"],
+      }
+    }
+  }
+  ```
+3. Edit **babel.config.js** file in the root of your project:
+  ```js
+  module.exports = {
+    plugins: [
+      [
+        'module-resolver',
+        {
+          alias: {
+            src: './src',
+            '@assets': './src/assets',
+            '@components': './src/components',
+            '@constants': './src/constants',
+            '@helpers': './src/helpers',
+            '@hooks': './src/hooks',
+            '@models': './src/models',
+            '@navigation': './src/navigation',
+            '@redux': './src/redux',
+            '@screens': './src/screens',
+            '@services': './src/services',
+            '@theme': './src/theme',
+            '@utils': './src/utils',
+          },
+        },
+      ],
+    ],
+  };
+  ```
+4. Restart App With Clear Cache: `npx expo start -c`
+
+<a id='setup'></a>
+[**⬆ Back to Top**](#Fundamentals)
+
 
 <a id='View'></a>
 
